@@ -35,8 +35,8 @@ public class RankPanel extends JPanel {
 	private JLabel lblScore[] = new JLabel[5];
 	private int[] lastScore = new int[2];
 
-	int idx; // 랭킹 Label을 DB로 부터 받아오고 랭킹 재조회 시 기존 랭킹을 지우는 index
-	private ImageIcon restart1, restart2, exit1, exit2; // 재시작, 종료 버튼에 이미지를 씌워주기 위한 이미지아이콘 각각 2개씩
+	int rankCnt;
+	private ImageIcon imgBeforeHoveringMain, imgAfterHoveringMain, imgBeforeHoveringExit, imgAfterHoveringExit;
 
 	public static RankPanel getInstance() {
 		if (rankPanel == null)
@@ -63,13 +63,13 @@ public class RankPanel extends JPanel {
 		lblSubTitle.setForeground(Color.red);
 		add(lblSubTitle);
 
-		restart1 = new MyIcon("main1.png").getIcon(225, 100);
-		restart2 = new MyIcon("main2.png").getIcon(225, 100);
+		imgBeforeHoveringMain = new MyIcon("main1.png").getIcon(225, 100);
+		imgAfterHoveringMain = new MyIcon("main2.png").getIcon(225, 100);
 
-		exit1 = new MyIcon("exit1.png").getIcon(225, 100);
-		exit2 = new MyIcon("exit2.png").getIcon(225, 100);
+		imgBeforeHoveringExit = new MyIcon("exit1.png").getIcon(225, 100);
+		imgAfterHoveringExit = new MyIcon("exit2.png").getIcon(225, 100);
 
-		btnGoMain = new Button("□ MAIN", restart1, restart2).getButton(backColor, 50, 550, 235, 100);
+		btnGoMain = new Button("□ MAIN", imgBeforeHoveringMain, imgAfterHoveringMain).getButton(backColor, 50, 550, 235, 100);
 		btnGoMain.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				game.mainState();
@@ -77,7 +77,7 @@ public class RankPanel extends JPanel {
 		});
 		add(btnGoMain);
 
-		btnExit = new Button("Exit", exit1, exit2).getButton(backColor, 325, 550, 235, 100);
+		btnExit = new Button("Exit", imgBeforeHoveringExit, imgAfterHoveringExit).getButton(backColor, 325, 550, 235, 100);
 		btnExit.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				System.exit(0);
@@ -87,10 +87,7 @@ public class RankPanel extends JPanel {
 	}
 
 	public void printRanking(RankPanel rankPanel) {
-		idx = 0;
-
-		// 랭킹을 5등까지 출력하는 메소드
-
+		rankCnt = 0;
 		Statement stmt = null;
 		ResultSet rs = null;
 
@@ -108,27 +105,27 @@ public class RankPanel extends JPanel {
 		}
 
 		try {
-			while (rs.next() && idx < 5) {
+			while (rs.next() && rankCnt < 5) {
 				String name = rs.getString(1);
 				int score = rs.getInt(2);
 
 				// NAME 랭킹 라벨
-				lblName[idx] = new JLabel();
-				lblName[idx].setBounds(50, 225 + 60 * (idx), 500, 60);
-				lblName[idx].setFont(new Font("Verdana", Font.BOLD, 35));
-				lblName[idx].setText(idx + 1 + ".  " + name + "\r\n");
-				rankPanel.add(lblName[idx]);
+				lblName[rankCnt] = new JLabel();
+				lblName[rankCnt].setBounds(50, 225 + 60 * (rankCnt), 500, 60);
+				lblName[rankCnt].setFont(new Font("Verdana", Font.BOLD, 35));
+				lblName[rankCnt].setText(rankCnt + 1 + ".  " + name + "\r\n");
+				rankPanel.add(lblName[rankCnt]);
 
 				// SCORE 랭킹 라벨
-				lblScore[idx] = new JLabel();
-				lblScore[idx].setBounds(340, 225 + 60 * (idx), 500, 60);
-				lblScore[idx].setFont(new Font("Verdana", Font.BOLD, 35));
-				lblScore[idx].setText(score + "\r\n");
-				rankPanel.add(lblScore[idx]);
+				lblScore[rankCnt] = new JLabel();
+				lblScore[rankCnt].setBounds(340, 225 + 60 * (rankCnt), 500, 60);
+				lblScore[rankCnt].setFont(new Font("Verdana", Font.BOLD, 35));
+				lblScore[rankCnt].setText(score + "\r\n");
+				rankPanel.add(lblScore[rankCnt]);
 
-				lastScore[0] = idx;
+				lastScore[0] = rankCnt;
 				lastScore[1] = score;
-				idx += 1;
+				rankCnt += 1;
 			}
 		} catch (SQLException e) {
 			e.printStackTrace();
@@ -136,7 +133,7 @@ public class RankPanel extends JPanel {
 	}
 
 	public void hideLabelBeforePrintRanking() {
-		for (int i = 0; i < idx; i++) {
+		for (int i = 0; i < rankCnt; i++) {
 			lblName[i].setVisible(false);
 			lblScore[i].setVisible(false);
 		}

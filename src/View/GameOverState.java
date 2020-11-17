@@ -40,11 +40,11 @@ public class GameOverState implements State {
 	@Override
 	public void playingState() {
 	}
-	
+
 	@Override
 	public void gameClear() {
 	}
-	
+
 	@Override
 	public void gameOver() {
 	}

@@ -20,7 +20,7 @@ public class Game extends JFrame {
 	public Game() {
 		GameManager.getInstance().setGame(this);
 		GameManager.getInstance().setBarObject(new BarObject());
-	    BackgroundMusic.getInstance().startMusic(); // 배경음악 받아서 재생
+	    BackgroundMusic.getInstance().startMusic();
 
 		controller = new GameController();
 		view = new MyView();

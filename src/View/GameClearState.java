@@ -25,10 +25,6 @@ public class GameClearState implements State {
 	}
 
 	@Override
-	public void gameClear() {
-	}
-
-	@Override
 	public void mainState() {
 		Game game = GameManager.getInstance().getGame();
 		BarObject barObject = GameManager.getInstance().getBarObject();
@@ -42,6 +38,10 @@ public class GameClearState implements State {
 
 	@Override
 	public void playingState() {
+	}
+
+	@Override
+	public void gameClear() {
 	}
 
 	@Override

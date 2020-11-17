@@ -71,26 +71,26 @@ public class PlayPanel extends JPanel {
 		BarObject barObject = GameManager.getInstance().getBarObject();
 
 		switch (key) { // 방향키 값을 받아와서 그 값에 따라 움직임
-		case 38: // UP-------------------------------------------------------------------------------------------
+		case 38: // UP
 			getGame().getController().moveUp(player, undo, map, boneList, riceBowlList);
 			BarkSound.getInstance().startMusic();
-
-			break; // 아래, 왼쪽, 오른쪽도 같은 방법으로 바꿔준다.
-		case 40: // DOWN-------------------------------------------------------------------------------
+			break;
+			
+		case 40: // DOWN
 			getGame().getController().moveDown(player, undo, map, boneList, riceBowlList);
-
 			BarkSound.getInstance().startMusic();
 			break;
-		case 37: // LEFT----------------------------------------------------------------------------------
+			
+		case 37: // LEFT
 			getGame().getController().moveLeft(player, undo, map, boneList, riceBowlList);
 			BarkSound.getInstance().startMusic();
-
 			break;
-		case 39: // RIGHT--------------------------------------------------------------------------------------
+			
+		case 39: // RIGHT
 			getGame().getController().moveRight(player, undo, map, boneList, riceBowlList);
 			BarkSound.getInstance().startMusic();
-
 			break;
+			
 		case 90:
 			getGame().getController().undo(player, undo, map, boneList, riceBowlList);
 			BarkSound.getInstance().startMusic();
