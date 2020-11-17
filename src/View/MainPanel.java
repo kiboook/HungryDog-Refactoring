@@ -65,7 +65,7 @@ public class MainPanel extends JPanel {
 				} else {
 					changeBgmIcon();
 					button.setText("ON");
-					BackgroundMusic.getInstance().start();
+					BackgroundMusic.getInstance().restartMusic();
 				}
 			}
 		});
@@ -90,16 +90,16 @@ public class MainPanel extends JPanel {
 		lblTitle.setHorizontalAlignment(SwingConstants.CENTER);
 		add(lblTitle);
 
-		lblDogDown = new Label("↓", imgDogDown).getMainLabel(90, 350, 100, 50);
+		lblDogDown = new Label("↓", imgDogDown).setMainLableWithPosition(90, 350, 100, 50);
 		add(lblDogDown);
 
-		lblDogLeft = new Label(" ←", imgDogLeft).getMainLabel(205, 350, 100, 50);
+		lblDogLeft = new Label(" ←", imgDogLeft).setMainLableWithPosition(205, 350, 100, 50);
 		add(lblDogLeft);
 
-		lblDogRight = new Label(" →", imgDogRight).getMainLabel(320, 350, 100, 50);
+		lblDogRight = new Label(" →", imgDogRight).setMainLableWithPosition(320, 350, 100, 50);
 		add(lblDogRight);
 
-		lblDogUp = new Label("↑", imgDogUp).getMainLabel(420, 350, 100, 50);
+		lblDogUp = new Label("↑", imgDogUp).setMainLableWithPosition(420, 350, 100, 50);
 		add(lblDogUp);
 
 		btnStart = new Button("GO!", imgBeforeHoveringStart, imgAfterHoveringStart).getButton(backColor, 50, 500, 310,

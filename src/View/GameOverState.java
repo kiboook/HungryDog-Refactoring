@@ -1,7 +1,7 @@
 package View;
 
 import Controller.GameManager;
-import Model.Model;
+import Model.BarObject;
 
 public class GameOverState implements State {
 
@@ -27,9 +27,9 @@ public class GameOverState implements State {
 	@Override
 	public void mainButton() {
 		Game game = GameManager.getInstance().getGame();
-		Model barObject = GameManager.getInstance().getModel();
+		BarObject barObject = GameManager.getInstance().getBarObject();
 		game.setState(MainState.getInstance());
-		barObject.initAll();
+		barObject.initBarObjects();
 
 	}
 

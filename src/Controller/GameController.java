@@ -28,7 +28,7 @@ public class GameController {
 	public void moveUp(Player player, Undo undo, View.Map map, ArrayList<Bone> boneList, ArrayList<RiceBowl> riceBowlList) {
 
 		player.moveUp();
-		GameManager.getInstance().getModel().moveUp();
+		GameManager.getInstance().getBarObject().getMoveCount();
 
 		undo.setnUndo(1); // 캐릭터만 움직임
 		if (map.mapArray[player.getY()][player.getX()] == GameObject.BONE) // 플레이어 이동할 좌표가 Box라면
@@ -49,7 +49,7 @@ public class GameController {
 				undo.setnUndo(11); // 캐릭터와 박스 모두 움직임
 				isMovable = true;
 			} else { // 벽이면
-				GameManager.getInstance().getModel().moveDown();
+				GameManager.getInstance().getBarObject().moveCountDown();
 				
 				// player.getY()++; // 원위치
 				player.moveDown();
@@ -59,7 +59,7 @@ public class GameController {
 		} else if (map.mapArray[player.getY()][player.getX()] == GameObject.BRICK) {
 			player.moveDown();
 			isMovable = false; // 못움직임
-			GameManager.getInstance().getModel().moveDown();
+			GameManager.getInstance().getBarObject().moveCountDown();
 			undo.setnUndo(0); // 언두도 못함
 		}
 		BarkSound.getInstance().startMusic();
@@ -68,7 +68,7 @@ public class GameController {
 
 	public void moveDown(Player player, Undo undo, View.Map map, ArrayList<Bone> boneList, ArrayList<RiceBowl> riceBowlList) {
 		player.moveDown();
-		GameManager.getInstance().getModel().moveUp();
+		GameManager.getInstance().getBarObject().moveCountUp();
 		undo.setnUndo(2);
 		if (map.mapArray[player.getY()][player.getX()] == 2) {
 			if (map.mapArray[player.getY() + 1][player.getX()] == 0
@@ -86,13 +86,13 @@ public class GameController {
 				isMovable = true;
 			} else {
 				// player.getY()--;
-				GameManager.getInstance().getModel().moveDown();
+				GameManager.getInstance().getBarObject().moveCountDown();
 				player.moveUp();
 				isMovable = false;
 				undo.setnUndo(0);
 			}
 		} else if (map.mapArray[player.getY()][player.getX()] == 1) {
-			GameManager.getInstance().getModel().moveDown();
+			GameManager.getInstance().getBarObject().moveCountDown();
 			player.moveUp();
 			isMovable = false;
 			undo.setnUndo(0);
@@ -104,7 +104,7 @@ public class GameController {
 	public void moveLeft(Player player, Undo undo, View.Map map, ArrayList<Bone> boneList, ArrayList<RiceBowl> riceBowlList) {
 		// player.moveLeft();
 		player.moveLeft();
-		GameManager.getInstance().getModel().moveUp();
+		GameManager.getInstance().getBarObject().moveCountUp();
 		undo.setnUndo(3);
 		if (map.mapArray[player.getY()][player.getX()] == 2) {
 			if (map.mapArray[player.getY()][player.getX() - 1] == 0
@@ -122,13 +122,13 @@ public class GameController {
 				isMovable = true;
 			} else {
 				// player.getX()++;
-				GameManager.getInstance().getModel().moveDown();
+				GameManager.getInstance().getBarObject().moveCountDown();
 				player.moveRight();
 				isMovable = false;
 				undo.setnUndo(0);
 			}
 		} else if (map.mapArray[player.getY()][player.getX()] == 1) {
-			GameManager.getInstance().getModel().moveDown();
+			GameManager.getInstance().getBarObject().moveCountDown();
 			player.moveRight();
 			isMovable = false;
 			undo.setnUndo(0);
@@ -140,7 +140,7 @@ public class GameController {
 	public void moveRight(Player player, Undo undo, View.Map map, ArrayList<Bone> boneList, ArrayList<RiceBowl> riceBowlList) {
 		// player.getX()++; // 캐릭터 오른쪽으로 이동(x좌표 + 1)
 		player.moveRight();
-		GameManager.getInstance().getModel().moveUp();
+		GameManager.getInstance().getBarObject().moveCountUp();
 
 		undo.setnUndo(4);
 		if (map.mapArray[player.getY()][player.getX()] == 2) {
@@ -158,14 +158,14 @@ public class GameController {
 				undo.setnUndo(41);
 				isMovable = true;
 			} else {
-				GameManager.getInstance().getModel().moveDown();
+				GameManager.getInstance().getBarObject().moveCountDown();
 				player.moveLeft();
 				isMovable = false;
 				undo.setnUndo(0);
 			}
 
 		} else if (map.mapArray[player.getY()][player.getX()] == 1) {
-			GameManager.getInstance().getModel().moveDown();
+			GameManager.getInstance().getBarObject().moveCountDown();
 			player.moveLeft();
 			isMovable = false;
 			undo.setnUndo(0);

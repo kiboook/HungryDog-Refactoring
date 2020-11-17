@@ -7,7 +7,7 @@ import Controller.GameManager;
 import Controller.MyListener;
 import Controller.Rank;
 import Model.BackgroundMusic;
-import Model.Model;
+import Model.BarObject;
 
 public class Game extends JFrame {
 	
@@ -19,7 +19,7 @@ public class Game extends JFrame {
 	
 	public Game() {
 		GameManager.getInstance().setGame(this);
-		GameManager.getInstance().setModel(new Model());
+		GameManager.getInstance().setBarObject(new BarObject());
 	    BackgroundMusic.getInstance().startMusic(); // 배경음악 받아서 재생
 
 		controller = new GameController();

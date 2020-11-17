@@ -2,8 +2,8 @@ package View;
 
 import Controller.GameManager;
 import Controller.TimeThread;
+import Model.BarObject;
 import Model.MapArray;
-import Model.Model;
 
 public class PlayingState implements State {
 
@@ -14,7 +14,7 @@ public class PlayingState implements State {
 
 	public static PlayingState getInstance() {
 		Game game = GameManager.getInstance().getGame();
-		Model barObject = GameManager.getInstance().getModel();
+		BarObject barObject = GameManager.getInstance().getBarObject();
 
 		game.getContentPane().removeAll();
 		game.getContentPane().add(new PlayPanel(new MapArray(barObject.getLevel()).getArray()));
@@ -50,10 +50,10 @@ public class PlayingState implements State {
 	@Override
 	public void nextStage() {
 		Game game = GameManager.getInstance().getGame();
-		Model barObject = GameManager.getInstance().getModel();
+		BarObject barObject = GameManager.getInstance().getBarObject();
 		TimeThread time = TimeThread.getInstance();
 		
-		barObject.setScore(time.getMinute(),time.getSecond());
+		barObject.calculateScore(time.getMinute(),time.getSecond());
 		barObject.initMove();
 		barObject.levelUp();
 		

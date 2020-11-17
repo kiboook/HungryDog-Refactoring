@@ -32,7 +32,7 @@ public class MyListener {
 	            int keyEvent = e.getKeyCode();
 
 	            panel.move(keyEvent);
-	            panel.getLblMove().setText(Integer.toString(panel.getBarObject().getMove()));
+	            panel.getLblMove().setText(Integer.toString(panel.getBarObject().getMoveCount()));
 	            panel.view(keyEvent);
 	            if(panel.isGameClear()) {
 	            	if (panel.getBarObject().getLevel() <= 8)

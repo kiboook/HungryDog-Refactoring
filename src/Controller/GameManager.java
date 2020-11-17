@@ -1,11 +1,11 @@
 package Controller;
 
-import Model.Model;
+import Model.BarObject;
 import View.Game;
 
 public class GameManager {
 	private Game mGame;
-	private Model barObject;
+	private BarObject barObject;
 	
 	public void setGame(Game _game) {
 		mGame = _game; 
@@ -22,11 +22,11 @@ public class GameManager {
 		return s_Instance;
 	}
 	
-	public void setModel(Model _model) {
-	      barObject = _model;
+	public void setBarObject(BarObject _barObject) {
+	      barObject = _barObject;
 	   }
 	   
-	   public Model getModel() {
+	   public BarObject getBarObject() {
 	      return barObject;
 	   }
 }
