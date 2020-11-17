@@ -18,9 +18,9 @@ import javax.swing.text.PlainDocument;
 
 import Controller.GameManager;
 import Controller.Rank;
+import Model.BarObject;
 import Model.Button;
 import Model.MyIcon;
-import Model.Model;
 
 public class GameOverPanel extends JPanel {
 
@@ -65,7 +65,7 @@ public class GameOverPanel extends JPanel {
 		btnInput = new Button("input1", input1, input2).getButton(backColor, 240, 500, 160, 75);
 		btnInput.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				Model barObject = GameManager.getInstance().getModel();
+				BarObject barObject = GameManager.getInstance().getBarObject();
 				String intxt = txtInput.getText();
 				txtInput.setText("");
 
@@ -77,7 +77,7 @@ public class GameOverPanel extends JPanel {
 					intxt = intxt.toUpperCase();
 					Rank.getInstance().setNewRank(barObject.getScore(), intxt);
 					
-					barObject.initAll();
+					barObject.initBarObjects();
 				}
 			}
 		});

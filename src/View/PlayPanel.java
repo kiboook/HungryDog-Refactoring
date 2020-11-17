@@ -10,11 +10,11 @@ import javax.swing.SwingConstants;
 
 import Controller.GameManager;
 import Controller.TimeThread;
+import Model.BarObject;
 import Model.BarkSound;
 import Model.Bone;
 import Model.MyIcon;
 import Model.Label;
-import Model.Model;
 import Model.Player;
 import Model.RiceBowl;
 import Model.Undo;
@@ -44,7 +44,7 @@ public class PlayPanel extends JPanel {
 	private JLabel lblMove;
 	boolean isGameOver;
 	private Game game = GameManager.getInstance().getGame();
-	private Model barObject = GameManager.getInstance().getModel();
+	private BarObject barObject = GameManager.getInstance().getBarObject();
 	
 // *******
 	Player player = new Player();
@@ -66,15 +66,15 @@ public class PlayPanel extends JPanel {
 
 
           stageIcon= new MyIcon("stage" + getBarObject().getLevel() + ".png").getIcon(100,100);
-          lblStage = new Label(stageIcon).getPlayLabel(0, 0, 100, 100);
+          lblStage = new Label(stageIcon).setPlayLabelWithPosition(0, 0, 100, 100);
             
           scoreIcon= new MyIcon("ScoreBoard.png").getIcon(200,100);
-          lblScore = new Label(scoreIcon, SwingConstants.CENTER).getPlayLabel(Color.blue,Color.black,100, 0, 200, 100);
+          lblScore = new Label(scoreIcon, SwingConstants.CENTER).setLableWithColorNPosition(Color.blue,Color.black,100, 0, 200, 100);
           lblScore.setText(Integer.toString(getBarObject().getScore()));
             
           moveIcon= new MyIcon("MoveBoard.png").getIcon(150,100);
-          setLblMove(new Label(moveIcon, SwingConstants.CENTER).getPlayLabel(Color.red,Color.black,300, 0, 150, 100));
-          getLblMove().setText(Integer.toString(getBarObject().getMove()));
+          setLblMove(new Label(moveIcon, SwingConstants.CENTER).setLableWithColorNPosition(Color.red,Color.black,300, 0, 150, 100));
+          getLblMove().setText(Integer.toString(getBarObject().getMoveCount()));
           
 
       TimeThread lblTime = TimeThread.getInstance();
@@ -94,7 +94,7 @@ public class PlayPanel extends JPanel {
 
 
    public void move(int key) { // 캐릭터와 뼈다귀, 밥그릇 좌표 옮기는 메소드
-      Model barObject = GameManager.getInstance().getModel();
+	   BarObject barObject = GameManager.getInstance().getBarObject();
       
 
       switch (key) { // 방향키 값을 받아와서 그 값에 따라 움직임
@@ -158,13 +158,13 @@ public void setLblMove(JLabel lblMove) {
 
 
 
-public Model getBarObject() {
+public BarObject getBarObject() {
 	return barObject;
 }
 
 
 
-public void setBarObject(Model barObject) {
+public void setBarObject(BarObject barObject) {
 	this.barObject = barObject;
 }
 
@@ -179,4 +179,5 @@ public Game getGame() {
 public void setGame(Game game) {
 	this.game = game;
 }
+
 }

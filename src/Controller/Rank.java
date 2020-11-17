@@ -9,7 +9,6 @@ import java.sql.Statement;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 
-import Model.Model;
 import View.Game;
 import View.RankPanel;
 import View.RankState;

@@ -35,7 +35,7 @@ public class TimeThread extends JLabel implements Runnable {
       setIcon(lblTimeIcon);
       
       setText("" + m + " : 0" + s);   // 남은 시간 10 : 00 보이게 하기
-      setFont(MyFont.getPlayFont());
+      setFont(MyFont.getPlayPanelFont());
       setForeground(Color.black);
       // label과 글씨 겹치게 하기
       setHorizontalAlignment(SwingConstants.CENTER);
@@ -87,7 +87,7 @@ public class TimeThread extends JLabel implements Runnable {
       }
 
       // 남은 시간을 빨간색으로 강조
-      setFont(MyFont.getPlayFont());
+      setFont(MyFont.getPlayPanelFont());
       setText("00 : 00");
       setForeground(Color.red);
    }

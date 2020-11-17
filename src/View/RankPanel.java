@@ -18,9 +18,9 @@ import javax.swing.JPanel;
 import javax.swing.SwingConstants;
 
 import Controller.GameManager;
+import Model.BarObject;
 import Model.Button;
 import Model.Label;
-import Model.Model;
 import Model.MyFont;
 import Model.MyIcon;
 
@@ -52,11 +52,11 @@ public class RankPanel extends JPanel {
 		setBackground(backColor);
 		setLayout(null);
 
-		lblTitle = new Label("RANKING").getRankLabel(MyFont.getRankBIgFont(),50, 50, 500, 90);
+		lblTitle = new Label("RANKING").setRankLabelWithFontNPosition(MyFont.getRankBIgFont(),50, 50, 500, 90);
 		lblTitle.setHorizontalAlignment(SwingConstants.CENTER);
 		add(lblTitle);
 
-		lblSubTitle = new Label("     NAME          SCORE").getRankLabel(MyFont.getRankSmallFont(), 50, 165, 500, 60);
+		lblSubTitle = new Label("     NAME          SCORE").setRankLabelWithFontNPosition(MyFont.getRankSmallFont(), 50, 165, 500, 60);
 		lblSubTitle.setOpaque(true);
 		lblSubTitle.setForeground(Color.red);
 		add(lblSubTitle);
@@ -142,7 +142,7 @@ public class RankPanel extends JPanel {
 	}
 	
 	public void isRankIn() {
-		Model barObject = GameManager.getInstance().getModel();
+		BarObject barObject = GameManager.getInstance().getBarObject();
 		if (lastScore[0] < 4 || lastScore[1] < barObject.getScore())
 			JOptionPane.showMessageDialog(null, "랭킹에 진입했습니다.");
 		else
