@@ -2,31 +2,31 @@ package Model;
 import java.awt.Font;
 
 public class MyFont {
-	private static Font mainFont,playFont,rankSmallFont,rankBigFont;
+	private static Font mainPanelFont,playPanelFont,rankPanelSmallFont,rankPanelBigFont;
 	public static Font getMainPanelFont() {
-	      if (mainFont == null)
-	         mainFont = new Font("a타임머신", Font.BOLD, 30);
+	      if (mainPanelFont == null)
+	    	  mainPanelFont = new Font("a타임머신", Font.BOLD, 30);
 
-	      return mainFont;
+	      return mainPanelFont;
 	   }
 	
 	public static Font getPlayPanelFont() {
-	      if (playFont == null)
-	         playFont = new Font("Verdana", Font.BOLD, 20);
+	      if (playPanelFont == null)
+	    	  playPanelFont = new Font("Verdana", Font.BOLD, 20);
 
-	      return playFont;
+	      return playPanelFont;
 	   }
 	public static Font getRankSmallFont() {
-	      if (rankSmallFont == null)
-	    	  rankSmallFont = new Font("Verdana", Font.BOLD, 35);
+	      if (rankPanelSmallFont == null)
+	    	  rankPanelSmallFont = new Font("Verdana", Font.BOLD, 35);
 
-	      return rankSmallFont;
+	      return rankPanelSmallFont;
 	   }
 	public static Font getRankBIgFont() {
-	      if (rankBigFont == null)
-	    	  rankBigFont = new Font("Verdana", Font.BOLD, 50);
+	      if (rankPanelBigFont == null)
+	    	  rankPanelBigFont = new Font("Verdana", Font.BOLD, 50);
 
-	      return rankBigFont;
+	      return rankPanelBigFont;
 	   }
 	   
 }
