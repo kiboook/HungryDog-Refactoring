@@ -18,26 +18,26 @@ public class MainState implements State {
 		game.setVisible(true);
 		if (mainState == null)
 			mainState = new MainState();
-		
+
 		return mainState;
 	}
 
 	@Override
-	public void rankButton() {
+	public void rankState() {
 		Game game = GameManager.getInstance().getGame();
 		game.setState(RankState.getInstance());
 	}
 
 	@Override
-	public void startButton() {
+	public void playingState() {
 		Game game = GameManager.getInstance().getGame();
 		game.setState(PlayingState.getInstance());
 		BackgroundMusic.getInstance().stopMusic();
-		game.getController().setIsGameOverTrue(); 
+		game.getController().setIsGameOverTrue();
 	}
 
 	@Override
-	public void mainButton() {
+	public void mainState() {
 	}
 
 	@Override

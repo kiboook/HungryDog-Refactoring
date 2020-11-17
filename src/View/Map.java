@@ -55,7 +55,6 @@ public class Map {
 			for (int j = 0; j < 12; j++) {
 				if (mapArray[i][j] == GameObject.PLAYER) { // 캐릭터 좌표 저장
 					mapArray[i][j] = 0;
-//					player = new Player(j, i, myImage.dogFrontImage);
 					player.setPoint(j,i);
 					player.setImage(MyImage.dogFrontImage);
 					player.addImageIcon();

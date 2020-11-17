@@ -52,11 +52,11 @@ public class PlayingState implements State {
 		Game game = GameManager.getInstance().getGame();
 		BarObject barObject = GameManager.getInstance().getBarObject();
 		TimeThread time = TimeThread.getInstance();
-		
-		barObject.calculateScore(time.getMinute(),time.getSecond());
+
+		barObject.calculateScore(time.getMinute(), time.getSecond());
 		barObject.initMove();
 		barObject.levelUp();
-		
+
 		time.stop(true);
 		time.setNull();
 
@@ -64,20 +64,14 @@ public class PlayingState implements State {
 	}
 
 	@Override
-	public void mainButton() {
-		// TODO Auto-generated method stub
-
+	public void mainState() {
 	}
 
 	@Override
-	public void rankButton() {
-		// TODO Auto-generated method stub
-
+	public void rankState() {
 	}
 
 	@Override
-	public void startButton() {
-		// TODO Auto-generated method stub
-
+	public void playingState() {
 	}
 }
