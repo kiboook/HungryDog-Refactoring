@@ -10,7 +10,6 @@ public class PlayingState implements State {
 	private static PlayingState playingState;
 
 	private PlayingState() {
-		System.out.println("Game Stage Page 출력");
 	}
 
 	public static PlayingState getInstance() {
@@ -37,7 +36,6 @@ public class PlayingState implements State {
 		game.setState(GameOverState.getInstance());
 		time.stop(true);
 		time.setNull();
-		System.out.println("Playing -> GameOver Page 진입");
 	}
 
 	@Override
@@ -47,7 +45,6 @@ public class PlayingState implements State {
 		game.setState(GameClearState.getInstance());
 		time.stop(true);
 		time.setNull();
-		System.out.println("Playing -> GameClear Page 진입");
 	}
 
 	@Override
@@ -64,8 +61,6 @@ public class PlayingState implements State {
 		time.setNull();
 
 		game.setState(PlayingState.getInstance());
-		
-		System.out.println("state는 그대로 PlayingState 이고 보여주는 Stage를 바꿔야 함");
 	}
 
 	@Override

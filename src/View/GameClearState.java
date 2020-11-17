@@ -8,7 +8,6 @@ public class GameClearState implements State {
 	private static GameClearState gameClearState;
 
 	private GameClearState() {
-		System.out.println("GameClear Page 출력");
 	}
 
 	public static GameClearState getInstance() {
@@ -35,28 +34,21 @@ public class GameClearState implements State {
 		Model barObject = GameManager.getInstance().getModel();
 		game.setState(MainState.getInstance());
 		barObject.initAll();
-		System.out.println("GameOver -> Main page 진입");
 	}
 
 	@Override
 	public void rankButton() {
-		// TODO Auto-generated method stub
 	}
 
 	@Override
 	public void startButton() {
-		// TODO Auto-generated method stub
 	}
 
 	@Override
 	public void gameOver() {
-		// TODO Auto-generated method stub
 	}
 
 	@Override
 	public void nextStage() {
-		// TODO Auto-generated method stub
-
 	}
-
 }

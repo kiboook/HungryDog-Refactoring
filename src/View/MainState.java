@@ -8,7 +8,6 @@ public class MainState implements State {
 	private static MainState mainState;
 
 	private MainState() {
-		System.out.println("Main Page 출력");
 	}
 
 	public static MainState getInstance() {
@@ -27,8 +26,6 @@ public class MainState implements State {
 	public void rankButton() {
 		Game game = GameManager.getInstance().getGame();
 		game.setState(RankState.getInstance());
-		
-		System.out.println("Main -> Ranking Page 진입");
 	}
 
 	@Override
@@ -37,7 +34,6 @@ public class MainState implements State {
 		game.setState(PlayingState.getInstance());
 		BackgroundMusic.getInstance().stopMusic();
 		game.getController().setIsGameOverTrue(); 
-		System.out.println("Main -> Game Playing Page 진입");
 	}
 
 	@Override
@@ -46,20 +42,13 @@ public class MainState implements State {
 
 	@Override
 	public void gameOver() {
-		// TODO Auto-generated method stub
-
 	}
 
 	@Override
 	public void gameClear() {
-		// TODO Auto-generated method stub
-
 	}
 
 	@Override
 	public void nextStage() {
-		// TODO Auto-generated method stub
-
 	}
-
 }
