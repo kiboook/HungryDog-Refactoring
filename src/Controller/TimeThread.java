@@ -53,7 +53,6 @@ public class TimeThread extends JLabel implements Runnable {
 
 	public void stop(boolean stop) {
 		this.stop = stop;
-		System.out.println(String.valueOf(this.stop));
 	}
 
 	public void run() {

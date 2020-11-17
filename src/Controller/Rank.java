@@ -37,7 +37,6 @@ public class Rank {
 	public void connectDB() {
 		try {
 			Class.forName("com.mysql.cj.jdbc.Driver");
-			System.out.println("디비연결성공");
 		} catch (ClassNotFoundException e1) {
 			e1.printStackTrace();
 		}
