@@ -6,7 +6,7 @@ import View.Game;
 public class GameManager {
 	private Game mGame;
 	private BarObject barObject;
-
+	private MyListener listener = new MyListener();
 	public void setGame(Game _game) {
 		mGame = _game;
 	}
@@ -30,4 +30,5 @@ public class GameManager {
 	public BarObject getBarObject() {
 		return barObject;
 	}
+	
 }

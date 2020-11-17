@@ -9,12 +9,18 @@ import Model.GameObject;
 import Model.Player;
 import Model.RiceBowl;
 import Model.Undo;
+import View.MyView;
 
 public class GameController {
+	
 	public boolean isMovable = true, isGameOver;
-
-	public GameController() {
-
+	MyView map = MyView.getInstance();
+	private static GameController s_Instance;
+	
+	public static GameController getInstance() {
+		if (s_Instance == null)
+			s_Instance = new GameController();
+		return s_Instance;
 	}
 
 	public boolean getIsGameOver() {
@@ -25,11 +31,10 @@ public class GameController {
 		isGameOver = false;
 	}
 
-	public void moveUp(Player player, Undo undo, View.Map map, ArrayList<Bone> boneList,
+	public void moveUp(Player player, Undo undo, ArrayList<Bone> boneList,
 			ArrayList<RiceBowl> riceBowlList) {
-
 		player.moveUp();
-		GameManager.getInstance().getBarObject().getMoveCount();
+		GameManager.getInstance().getBarObject().moveCountUp();
 		// 캐릭터만 움직임
 		undo.setnUndo(1);
 		// 플레이어 이동할 좌표가 BONE이라면
@@ -51,8 +56,6 @@ public class GameController {
 				isMovable = true;
 				// 벽인 경우
 			} else {
-				GameManager.getInstance().getBarObject().moveCountDown();
-
 				player.moveDown();
 				isMovable = false;
 				undo.setnUndo(0);
@@ -63,12 +66,13 @@ public class GameController {
 			GameManager.getInstance().getBarObject().moveCountDown();
 			undo.setnUndo(0);
 		}
-		BarkSound.getInstance().startMusic();
-
+		SoundManager.getInstance().getBarkSound().startMusic();
+	
 	}
 
-	public void moveDown(Player player, Undo undo, View.Map map, ArrayList<Bone> boneList,
+	public void moveDown(Player player, Undo undo, ArrayList<Bone> boneList,
 			ArrayList<RiceBowl> riceBowlList) {
+
 		player.moveDown();
 		GameManager.getInstance().getBarObject().moveCountUp();
 		undo.setnUndo(2);
@@ -98,12 +102,13 @@ public class GameController {
 			isMovable = false;
 			undo.setnUndo(0);
 		}
-		BarkSound.getInstance().startMusic();
+		SoundManager.getInstance().getBarkSound().startMusic();
 
 	}
 
-	public void moveLeft(Player player, Undo undo, View.Map map, ArrayList<Bone> boneList,
+	public void moveLeft(Player player, Undo undo, ArrayList<Bone> boneList,
 			ArrayList<RiceBowl> riceBowlList) {
+
 		player.moveLeft();
 		GameManager.getInstance().getBarObject().moveCountUp();
 		undo.setnUndo(3);
@@ -133,12 +138,13 @@ public class GameController {
 			isMovable = false;
 			undo.setnUndo(0);
 		}
-		BarkSound.getInstance().startMusic();
+		SoundManager.getInstance().getBarkSound().startMusic();
 
 	}
 
-	public void moveRight(Player player, Undo undo, View.Map map, ArrayList<Bone> boneList,
+	public void moveRight(Player player, Undo undo, ArrayList<Bone> boneList,
 			ArrayList<RiceBowl> riceBowlList) {
+
 		player.moveRight();
 		GameManager.getInstance().getBarObject().moveCountUp();
 
@@ -170,16 +176,18 @@ public class GameController {
 			isMovable = false;
 			undo.setnUndo(0);
 		}
-		BarkSound.getInstance().startMusic();
+		
+		SoundManager.getInstance().getBarkSound().startMusic();
 	}
 
-	public void undo(Player player, Undo undo, View.Map map, ArrayList<Bone> boneList,
+	public void undo(Player player, Undo undo, ArrayList<Bone> boneList,
 			ArrayList<RiceBowl> riceBowlList) {
+
 		// undo.nUndo값에 따라 직전 상태로 바뀜
 		switch (undo.getnUndo()) {
 		// 캐릭터만 아래로 움직여줌
 		case 1:
-			GameManager.getInstance().getGame().getController().moveDown(player, undo, map, boneList, riceBowlList);
+			this.moveDown(player, undo, boneList, riceBowlList);
 			break;
 
 		// 뼈다귀를 먼저 아래로 움직이고 캐릭터도 아래로 움직여줌
@@ -191,12 +199,12 @@ public class GameController {
 					boneList.get(i).setY(undo.getUndoY() + 1);
 				}
 			}
-			GameManager.getInstance().getGame().getController().moveDown(player, undo, map, boneList, riceBowlList);
+			this.moveDown(player, undo, boneList, riceBowlList);
 			break;
 
 		// 캐릭터만 위로 움직여줌
 		case 2:
-			GameManager.getInstance().getGame().getController().moveUp(player, undo, map, boneList, riceBowlList);
+			this.moveUp(player, undo, boneList, riceBowlList);
 			break;
 
 		// 캐릭터와 뼈다귀 위로 움직여줌
@@ -208,12 +216,12 @@ public class GameController {
 					boneList.get(i).setY(undo.getUndoY() - 1);
 				}
 			}
-			GameManager.getInstance().getGame().getController().moveUp(player, undo, map, boneList, riceBowlList);
+			this.moveUp(player, undo, boneList, riceBowlList);
 			break;
 
 		// 캐릭터만 오른쪽으로 움직여줌
 		case 3:
-			GameManager.getInstance().getGame().getController().moveRight(player, undo, map, boneList, riceBowlList);
+			this.moveRight(player, undo, boneList, riceBowlList);
 			break;
 
 		// 캐릭터와 뼈다귀 모두 오른쪽으로 움직여줌
@@ -225,12 +233,12 @@ public class GameController {
 					boneList.get(i).setX(undo.getUndoX() + 1);
 				}
 			}
-			GameManager.getInstance().getGame().getController().moveRight(player, undo, map, boneList, riceBowlList);
+			this.moveRight(player, undo, boneList, riceBowlList);
 			break;
 
 		// 캐릭터만 왼쪽으로 움직여줌
 		case 4:
-			GameManager.getInstance().getGame().getController().moveLeft(player, undo, map, boneList, riceBowlList);
+			this.moveLeft(player, undo, boneList, riceBowlList);
 			break;
 
 		// 캐릭터와 뼈다귀 왼쪽으로 움직이기
@@ -242,14 +250,14 @@ public class GameController {
 					boneList.get(i).setX(undo.getUndoX() - 1);
 				}
 			}
-			GameManager.getInstance().getGame().getController().moveLeft(player, undo, map, boneList, riceBowlList);
+			this.moveLeft(player, undo, boneList, riceBowlList);
 			break;
 		}
-
+		SoundManager.getInstance().getBarkSound().startMusic();
 		undo.setnUndo(0); // 다시 못 바꾸게 하기
 	}
 
-	public boolean isGameClear(Player player, Undo undo, View.Map map, ArrayList<Bone> boneList,
+	public boolean isGameClear(Player player, Undo undo, ArrayList<Bone> boneList,
 			ArrayList<RiceBowl> riceBowlList) {
 		int Goal_Count = 0;
 
@@ -265,7 +273,7 @@ public class GameController {
 			return false;
 	}
 
-	public boolean isGameOver(Player player, Undo undo, View.Map map, ArrayList<Bone> boneList,
+	public boolean isGameOver(Player player, Undo undo, ArrayList<Bone> boneList,
 			ArrayList<RiceBowl> riceBowlList) {
 
 		boolean OverFlag = false;

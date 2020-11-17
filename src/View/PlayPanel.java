@@ -8,7 +8,10 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.SwingConstants;
 
+import Controller.GameController;
 import Controller.GameManager;
+import Controller.MyListener;
+import Controller.SoundManager;
 import Controller.TimeThread;
 import Model.BarObject;
 import Model.BarkSound;
@@ -20,7 +23,7 @@ import Model.RiceBowl;
 import Model.Undo;
 
 public class PlayPanel extends JPanel {
-	private Map map;
+	//private Map map;
 	private Undo undo;
 	private ImageIcon stageIcon, scoreIcon, moveIcon;
 	private JLabel lblStage, lblScore;
@@ -35,13 +38,14 @@ public class PlayPanel extends JPanel {
 
 	public PlayPanel(int mapArray[][]) {
 
-		map = new Map(mapArray);
+		MyView.getInstance().SettingMap(mapArray);
+		//map = new Map(mapArray);
 		undo = new Undo();
 
 		setBounds(0, 100, 600, 600);
 		setBackground(Color.red);
 		setLayout(null);
-		getGame().listener.addPlayPanelKeyListner(this);
+		MyListener.getInstance().addPlayPanelKeyListner(this);
 
 		stageIcon = new MyIcon("stage" + getBarObject().getLevel() + ".png").getIcon(100, 100);
 		lblStage = new Label(stageIcon).setPlayLabelWithPosition(0, 0, 100, 100);
@@ -63,8 +67,8 @@ public class PlayPanel extends JPanel {
 		add(getLblMove());
 		add(lblTime);
 
-		map.DrawObject(this, player, boneList, riceBowlList);
-		map.DrawMap(this);
+		MyView.getInstance().DrawObject(this, player, boneList, riceBowlList);
+		MyView.getInstance().DrawMap(this);
 	}
 
 	public void move(int key) { // 캐릭터와 뼈다귀, 밥그릇 좌표 옮기는 메소드
@@ -72,47 +76,47 @@ public class PlayPanel extends JPanel {
 
 		switch (key) { // 방향키 값을 받아와서 그 값에 따라 움직임
 		case 38: // UP
-			getGame().getController().moveUp(player, undo, map, boneList, riceBowlList);
-			BarkSound.getInstance().startMusic();
+			GameController.getInstance().moveUp(player, undo, boneList, riceBowlList);
+			//getGame().getController().moveUp(player, undo, boneList, riceBowlList);
 			break;
 			
 		case 40: // DOWN
-			getGame().getController().moveDown(player, undo, map, boneList, riceBowlList);
-			BarkSound.getInstance().startMusic();
+			GameController.getInstance().moveDown(player, undo, boneList, riceBowlList);
+			//getGame().getController().moveDown(player, undo, boneList, riceBowlList);
 			break;
 			
 		case 37: // LEFT
-			getGame().getController().moveLeft(player, undo, map, boneList, riceBowlList);
-			BarkSound.getInstance().startMusic();
+			GameController.getInstance().moveLeft(player, undo, boneList, riceBowlList);
+			//getGame().getController().moveLeft(player, undo, boneList, riceBowlList);
 			break;
 			
 		case 39: // RIGHT
-			getGame().getController().moveRight(player, undo, map, boneList, riceBowlList);
-			BarkSound.getInstance().startMusic();
+			GameController.getInstance().moveRight(player, undo, boneList, riceBowlList);
+			//getGame().getController().moveRight(player, undo, boneList, riceBowlList);
 			break;
 			
 		case 90:
-			getGame().getController().undo(player, undo, map, boneList, riceBowlList);
-			BarkSound.getInstance().startMusic();
+			GameController.getInstance().undo(player, undo, boneList, riceBowlList);
+			//getGame().getController().undo(player, undo, boneList, riceBowlList);
 			break;
 		}
 
 	}
 
 	public void undo() {
-		getGame().getController().undo(player, undo, map, boneList, riceBowlList);
+		GameController.getInstance().undo(player, undo, boneList, riceBowlList);
 	}
 
 	public void view(int key) {
-		getGame().view.inputKeyValueView(key, player, undo, map, boneList, riceBowlList);
+		MyView.getInstance().inputKeyValueView(key, player, undo, boneList, riceBowlList);
 	}
 
 	public boolean isGameClear() {
-		return getGame().getController().isGameClear(player, undo, map, boneList, riceBowlList);
+		return GameController.getInstance().isGameClear(player, undo, boneList, riceBowlList);
 	}
 
 	public boolean isGameOver() {
-		return getGame().getController().isGameOver(player, undo, map, boneList, riceBowlList);
+		return GameController.getInstance().isGameOver(player, undo, boneList, riceBowlList);
 	}
 
 	public JLabel getLblMove() {

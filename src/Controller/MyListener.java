@@ -7,9 +7,13 @@ import View.PlayPanel;
 
 public class MyListener {
 
-	public MyListener() {
+	private static MyListener s_instance;
+	
+	public static MyListener getInstance() {
+		if(s_instance == null)
+			s_instance = new MyListener();
+		return s_instance;
 	}
-
 	public void addPlayPanelKeyListner(PlayPanel panel) {
 		panel.addKeyListener(new KeyListener() {
 
