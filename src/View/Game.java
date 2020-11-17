@@ -11,7 +11,7 @@ import Model.BarObject;
 
 public class Game extends JFrame {
 	
-	public View view;
+	public MyView view;
 	public MyListener listener;
 	
 	private State state;
@@ -23,7 +23,7 @@ public class Game extends JFrame {
 	    BackgroundMusic.getInstance().startMusic(); // 배경음악 받아서 재생
 
 		controller = new GameController();
-		view = new View();
+		view = new MyView();
 		listener = new MyListener();
 		setTitle("배고픈 댕댕이");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -38,20 +38,21 @@ public class Game extends JFrame {
 	public GameController getController() {
 		return controller;
 	}
+	
 	public void setState(State state) {
 		this.state = state;
 	}
 	
-	public void mainButton() {
-		this.state.mainButton();
+	public void mainState() {
+		this.state.mainState();
 	}
 	
-	public void rankButton() {
-		this.state.rankButton();
+	public void rankState() {
+		this.state.rankState();
 	}
 	
-	public void startButton() {
-		this.state.startButton();
+	public void playingState() {
+		this.state.playingState();
 	}
 	
 	public void gameClear() {

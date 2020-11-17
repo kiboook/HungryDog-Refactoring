@@ -8,9 +8,9 @@ import Model.Player;
 import Model.RiceBowl;
 import Model.Undo;
 
-public class View {
+public class MyView {
 	
-	public View() {
+	public MyView() {
 		
 	}
 	public void inputKeyValueView(int key, Player player,Undo undo,Map map,

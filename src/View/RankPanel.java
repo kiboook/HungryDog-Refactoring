@@ -1,4 +1,5 @@
 package View;
+
 import Controller.Rank;
 
 import java.awt.Color;
@@ -29,7 +30,7 @@ public class RankPanel extends JPanel {
 	private static RankPanel rankPanel;
 	private JButton btnGoMain, btnExit;
 	private JLabel lblTitle, lblSubTitle;
-	
+
 	private JLabel lblName[] = new JLabel[5];
 	private JLabel lblScore[] = new JLabel[5];
 	private int[] lastScore = new int[2];
@@ -52,11 +53,12 @@ public class RankPanel extends JPanel {
 		setBackground(backColor);
 		setLayout(null);
 
-		lblTitle = new Label("RANKING").setRankLabelWithFontNPosition(MyFont.getRankBIgFont(),50, 50, 500, 90);
+		lblTitle = new Label("RANKING").setRankLabelWithFontNPosition(MyFont.getRankBIgFont(), 50, 50, 500, 90);
 		lblTitle.setHorizontalAlignment(SwingConstants.CENTER);
 		add(lblTitle);
 
-		lblSubTitle = new Label("     NAME          SCORE").setRankLabelWithFontNPosition(MyFont.getRankSmallFont(), 50, 165, 500, 60);
+		lblSubTitle = new Label("     NAME          SCORE").setRankLabelWithFontNPosition(MyFont.getRankSmallFont(), 50,
+				165, 500, 60);
 		lblSubTitle.setOpaque(true);
 		lblSubTitle.setForeground(Color.red);
 		add(lblSubTitle);
@@ -70,11 +72,10 @@ public class RankPanel extends JPanel {
 		btnGoMain = new Button("□ MAIN", restart1, restart2).getButton(backColor, 50, 550, 235, 100);
 		btnGoMain.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				game.mainButton();
+				game.mainState();
 			}
 		});
 		add(btnGoMain);
-		
 
 		btnExit = new Button("Exit", exit1, exit2).getButton(backColor, 325, 550, 235, 100);
 		btnExit.addActionListener(new ActionListener() {
@@ -84,7 +85,7 @@ public class RankPanel extends JPanel {
 		});
 		add(btnExit);
 	}
-	
+
 	public void printRanking(RankPanel rankPanel) {
 		idx = 0;
 
@@ -133,14 +134,14 @@ public class RankPanel extends JPanel {
 			e.printStackTrace();
 		}
 	}
-	
-	public void hideBeforeRankLabel() {
+
+	public void hideLabelBeforePrintRanking() {
 		for (int i = 0; i < idx; i++) {
 			lblName[i].setVisible(false);
 			lblScore[i].setVisible(false);
 		}
 	}
-	
+
 	public void isRankIn() {
 		BarObject barObject = GameManager.getInstance().getBarObject();
 		if (lastScore[0] < 4 || lastScore[1] < barObject.getScore())

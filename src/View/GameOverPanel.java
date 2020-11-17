@@ -89,7 +89,7 @@ public class GameOverPanel extends JPanel {
 		btnGoMain = new Button("main1", goMain1, goMain2).getButton(backColor, 410, 500, 160, 75);
 		btnGoMain.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				game.mainButton();
+				game.mainState();
 			}
 		});
 		add(btnGoMain);

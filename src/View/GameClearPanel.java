@@ -88,7 +88,7 @@ public class GameClearPanel extends JPanel {
 				75);
 		btnMain.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				game.mainButton();
+				game.mainState();
 			}
 		});
 		add(btnMain);

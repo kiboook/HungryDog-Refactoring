@@ -106,7 +106,7 @@ public class MainPanel extends JPanel {
 				150);
 		btnStart.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				game.startButton();
+				game.playingState();
 			}
 		});
 		add(btnStart);
@@ -115,7 +115,7 @@ public class MainPanel extends JPanel {
 				150);
 		btnRank.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				game.rankButton();
+				game.rankState();
 			}
 		});
 		add(btnRank);

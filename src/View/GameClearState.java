@@ -29,7 +29,7 @@ public class GameClearState implements State {
 	}
 
 	@Override
-	public void mainButton() {
+	public void mainState() {
 		Game game = GameManager.getInstance().getGame();
 		BarObject barObject = GameManager.getInstance().getBarObject();
 		game.setState(MainState.getInstance());
@@ -37,11 +37,11 @@ public class GameClearState implements State {
 	}
 
 	@Override
-	public void rankButton() {
+	public void rankState() {
 	}
 
 	@Override
-	public void startButton() {
+	public void playingState() {
 	}
 
 	@Override
