@@ -1,6 +1,6 @@
 package Model;
 
-public class BarkSound extends PlayMusic {
+public class BarkSound extends Sound {
 
 	public BarkSound() {
 		super("Music/Bark");

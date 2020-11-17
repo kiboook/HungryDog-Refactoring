@@ -1,7 +1,7 @@
 package Model;
 import javax.sound.sampled.Clip;
 
-public class BackgroundMusic extends PlayMusic{
+public class BackgroundMusic extends Sound{
 	
 
 	public BackgroundMusic() {
