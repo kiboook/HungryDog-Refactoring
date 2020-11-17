@@ -64,7 +64,6 @@ public class GameObject {
 	public void addImageIcon() {
 		label.setBounds(boundPoint.x * 50, boundPoint.y * 50+100, 50, 50);
 		label.setVisible(true);
-		// 여기에 add(label)까지 해주고 싶다……	
 	}
 	
 	
