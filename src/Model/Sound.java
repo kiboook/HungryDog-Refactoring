@@ -11,9 +11,9 @@ import javax.sound.sampled.LineUnavailableException;
 import javax.sound.sampled.UnsupportedAudioFileException;
 
 public class Sound {
-	File soundFile = null;
-	AudioInputStream audioIn = null;
-	Clip clip;
+	protected File soundFile = null;
+	protected AudioInputStream audioIn = null;
+	protected Clip clip;
 
 	public Sound(String fileName) {
 		soundFile = new File(fileName + ".wav");

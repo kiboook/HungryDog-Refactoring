@@ -1,7 +1,7 @@
 package Model;
 public class MapArray {
 
-	int Array[][] = new int[12][12];
+	private int Array[][] = new int[12][12];
 
 	// 현재 레벨에 맞게 맵배열 저장
 	public MapArray(int level) {

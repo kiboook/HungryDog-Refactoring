@@ -62,7 +62,7 @@ public class GameOverPanel extends JPanel {
 		imgAfterHoveringInput = new MyIcon("input2.png").getIcon(150, 70);
 
 		btnScoreInput = new Button("imgBeforeHoveringInput", imgBeforeHoveringInput, imgAfterHoveringInput)
-				.getButton(backColor, 240, 500, 160, 75);
+				.setButton(backColor, 240, 500, 160, 75);
 		btnScoreInput.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				BarObject barObject = GameManager.getInstance().getBarObject();
@@ -84,7 +84,7 @@ public class GameOverPanel extends JPanel {
 		imgBeforeHoveringMain = new MyIcon("main1.png").getIcon(150, 75);
 		imgAfterHoveringMain = new MyIcon("main2.png").getIcon(150, 75);
 
-		btnMain = new Button("main1", imgBeforeHoveringMain, imgAfterHoveringMain).getButton(backColor, 410, 500, 160,
+		btnMain = new Button("main1", imgBeforeHoveringMain, imgAfterHoveringMain).setButton(backColor, 410, 500, 160,
 				75);
 		btnMain.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {

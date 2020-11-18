@@ -13,7 +13,7 @@ import View.MyView;
 
 public class GameController {
 	
-	public boolean isMovable = true, isGameOver;
+	private boolean isMovable = true, isGameOver;
 	MyView map = MyView.getInstance();
 	private static GameController s_Instance;
 	

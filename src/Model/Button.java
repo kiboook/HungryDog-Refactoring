@@ -16,7 +16,7 @@ public class Button {
       this.buttonIconName=buttonIconName;
       }
 
-   public JButton getButton(Color backColor, int widthPosition, int heightPosition, int widthLengh, int heightLength) {
+   public JButton setButton(Color backColor, int widthPosition, int heightPosition, int widthLengh, int heightLength) {
       button = new JButton(getButtonIconName(), getIconBeforeHovering());
       button.setBounds(widthPosition, heightPosition, widthLengh, heightLength);
       button.setBorderPainted(false);

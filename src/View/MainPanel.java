@@ -103,7 +103,7 @@ public class MainPanel extends JPanel {
 		lblDogUp = new Label("↑", imgDogUp).setMainLableWithPosition(420, 350, 100, 50);
 		add(lblDogUp);
 
-		btnStart = new Button("GO!", imgBeforeHoveringStart, imgAfterHoveringStart).getButton(backColor, 50, 500, 310,
+		btnStart = new Button("GO!", imgBeforeHoveringStart, imgAfterHoveringStart).setButton(backColor, 50, 500, 310,
 				150);
 		btnStart.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -112,7 +112,7 @@ public class MainPanel extends JPanel {
 		});
 		add(btnStart);
 
-		btnRank = new Button("RANKING", imgBeforeHoveringRank, imgAfterHoveringRank).getButton(backColor, 400, 500, 150,
+		btnRank = new Button("RANKING", imgBeforeHoveringRank, imgAfterHoveringRank).setButton(backColor, 400, 500, 150,
 				150);
 		btnRank.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {

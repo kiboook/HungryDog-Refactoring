@@ -5,8 +5,8 @@ import javax.swing.ImageIcon;
 
 public class MyIcon {
    private String objectName;
-   static Image originImg, changedImg;
-   static ImageIcon originIcon;
+   private static Image originImg, changedImg;
+   private static ImageIcon originIcon;
    private static MyIcon dogFront, dogBack, dogLeft, dogRight, wall, ground, bone, bowl, fullBowl, tree;
 
    public MyIcon(String objectName) {
