@@ -23,7 +23,6 @@ import Model.RiceBowl;
 import Model.Undo;
 
 public class PlayPanel extends JPanel {
-	//private Map map;
 	private Undo undo;
 	private ImageIcon stageIcon, scoreIcon, moveIcon;
 	private JLabel lblStage, lblScore;
@@ -39,7 +38,6 @@ public class PlayPanel extends JPanel {
 	public PlayPanel(int mapArray[][]) {
 
 		MyView.getInstance().SettingMap(mapArray);
-		//map = new Map(mapArray);
 		undo = new Undo();
 
 		setBounds(0, 100, 600, 600);
@@ -77,27 +75,22 @@ public class PlayPanel extends JPanel {
 		switch (key) { // 방향키 값을 받아와서 그 값에 따라 움직임
 		case 38: // UP
 			GameController.getInstance().moveUp(player, undo, boneList, riceBowlList);
-			//getGame().getController().moveUp(player, undo, boneList, riceBowlList);
 			break;
 			
 		case 40: // DOWN
 			GameController.getInstance().moveDown(player, undo, boneList, riceBowlList);
-			//getGame().getController().moveDown(player, undo, boneList, riceBowlList);
 			break;
 			
 		case 37: // LEFT
 			GameController.getInstance().moveLeft(player, undo, boneList, riceBowlList);
-			//getGame().getController().moveLeft(player, undo, boneList, riceBowlList);
 			break;
 			
 		case 39: // RIGHT
 			GameController.getInstance().moveRight(player, undo, boneList, riceBowlList);
-			//getGame().getController().moveRight(player, undo, boneList, riceBowlList);
 			break;
 			
 		case 90:
 			GameController.getInstance().undo(player, undo, boneList, riceBowlList);
-			//getGame().getController().undo(player, undo, boneList, riceBowlList);
 			break;
 		}
 

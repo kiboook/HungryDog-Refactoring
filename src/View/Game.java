@@ -13,7 +13,6 @@ import Model.BarObject;
 public class Game extends JFrame {
 	
 	private State state;
-	//private GameController controller;
 	
 	public Game() {
 		GameManager.getInstance().setGame(this);

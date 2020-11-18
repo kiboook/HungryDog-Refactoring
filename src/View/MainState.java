@@ -35,10 +35,7 @@ public class MainState implements State {
 		Game game = GameManager.getInstance().getGame();
 		game.setState(PlayingState.getInstance());
 		SoundManager.getInstance().getBGM().stopMusic();
-
-//		BackgroundMusic.getInstance().stopMusic();
 		GameController.getInstance().setIsGameOverTrue();
-//		game.getController().setIsGameOverTrue();
 	}
 
 	@Override

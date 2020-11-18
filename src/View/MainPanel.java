@@ -63,14 +63,10 @@ public class MainPanel extends JPanel {
 					changeBgmIcon();
 					button.setText("OFF");
 					SoundManager.getInstance().getBGM().stopMusic();
-
-//					BackgroundMusic.getInstance().stopMusic();
 				} else {
 					changeBgmIcon();
 					button.setText("ON");
 					SoundManager.getInstance().getBGM().restartMusic();
-
-//					BackgroundMusic.getInstance().restartMusic();
 				}
 			}
 		});
