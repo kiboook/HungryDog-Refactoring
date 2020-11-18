@@ -31,9 +31,9 @@ public class PlayPanel extends JPanel {
 	private Game game = GameManager.getInstance().getGame();
 	private BarObject barObject = GameManager.getInstance().getBarObject();
 
-	Player player = new Player();
-	ArrayList<Bone> boneList = new ArrayList<>();
-	ArrayList<RiceBowl> riceBowlList = new ArrayList<>();
+	private Player player = new Player();
+	private ArrayList<Bone> boneList = new ArrayList<>();
+	private ArrayList<RiceBowl> riceBowlList = new ArrayList<>();
 
 	public PlayPanel(int mapArray[][]) {
 

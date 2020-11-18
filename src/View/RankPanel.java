@@ -35,7 +35,7 @@ public class RankPanel extends JPanel {
 	private JLabel lblScore[] = new JLabel[5];
 	private int[] lastScore = new int[2];
 
-	int rankCnt;
+	private int rankCnt;
 	private ImageIcon imgBeforeHoveringMain, imgAfterHoveringMain, imgBeforeHoveringExit, imgAfterHoveringExit;
 
 	public static RankPanel getInstance() {
@@ -69,7 +69,7 @@ public class RankPanel extends JPanel {
 		imgBeforeHoveringExit = new MyIcon("exit1.png").getIcon(225, 100);
 		imgAfterHoveringExit = new MyIcon("exit2.png").getIcon(225, 100);
 
-		btnGoMain = new Button("□ MAIN", imgBeforeHoveringMain, imgAfterHoveringMain).getButton(backColor, 50, 550, 235, 100);
+		btnGoMain = new Button("□ MAIN", imgBeforeHoveringMain, imgAfterHoveringMain).setButton(backColor, 50, 550, 235, 100);
 		btnGoMain.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				game.mainState();
@@ -77,7 +77,7 @@ public class RankPanel extends JPanel {
 		});
 		add(btnGoMain);
 
-		btnExit = new Button("Exit", imgBeforeHoveringExit, imgAfterHoveringExit).getButton(backColor, 325, 550, 235, 100);
+		btnExit = new Button("Exit", imgBeforeHoveringExit, imgAfterHoveringExit).setButton(backColor, 325, 550, 235, 100);
 		btnExit.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				System.exit(0);

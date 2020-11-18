@@ -12,8 +12,8 @@ import Model.MyFont;
 public class TimeThread extends JLabel implements Runnable {
 
 	private Thread myThread;
-	private int nSleep, m, s;
-	private ImageIcon lblTimeIcon, lblIcon;
+	private int nSleep, min, sec;
+	private ImageIcon lblTimeIcon;
 	private static TimeThread lblTime;
 	private boolean stop = false;
 
@@ -26,13 +26,13 @@ public class TimeThread extends JLabel implements Runnable {
 
 	public TimeThread() {
 		nSleep = 1000;
-		m = 10;
-		s = 0;
+		min = 10;
+		sec = 0;
 
 		lblTimeIcon = new MyIcon("TimeBoard.png").getIcon(150, 100);
 		setIcon(lblTimeIcon);
 
-		setText("" + m + " : 0" + s);
+		setText("" + min + " : 0" + sec);
 		setFont(MyFont.getPlayPanelFont());
 		setForeground(Color.black);
 		setHorizontalAlignment(SwingConstants.CENTER);
@@ -64,12 +64,12 @@ public class TimeThread extends JLabel implements Runnable {
 			} catch (Exception e) {
 			}
 			// 남은 시간 경과 표시
-			for (m = 9; m >= 0; m--) {
-				for (s = 59; s >= 0; s--) {
-					if (s < 10) {
-						setText("0" + m + " : 0" + s);
+			for (min = 9; min >= 0; min--) {
+				for (sec = 59; sec >= 0; sec--) {
+					if (sec < 10) {
+						setText("0" + min + " : 0" + sec);
 					} else {
-						setText("0" + m + " : " + s);
+						setText("0" + min + " : " + sec);
 					}
 
 					try {
@@ -92,11 +92,11 @@ public class TimeThread extends JLabel implements Runnable {
 	}
 
 	public int getMinute() {
-		return m;
+		return min;
 	}
 
 	public int getSecond() {
-		return s;
+		return sec;
 	}
 
 }

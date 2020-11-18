@@ -18,6 +18,7 @@ public class Game extends JFrame {
 		GameManager.getInstance().setGame(this);
 		GameManager.getInstance().setBarObject(new BarObject());
 		SoundManager.getInstance().getBGM().startMusic();
+		SoundManager.getInstance().getBGM().loopClip();
 	    
 		setTitle("배고픈 댕댕이");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);

@@ -6,9 +6,9 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 
 public class GameObject {
-	Point boundPoint = new Point();
+	protected Point boundPoint = new Point();
 	public JLabel label;
-	int myObject;
+	protected int myObject;
 	JPanel panel;
 	public static final int GRASS = 0;
 	public static final int BRICK = 1;
