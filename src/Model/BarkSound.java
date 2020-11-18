@@ -6,11 +6,11 @@ public class BarkSound extends Sound {
 		super("Music/Bark");
 	}
 	
-	private static BarkSound bark;
-
-	public static BarkSound getInstance() {
-	      if(bark == null) bark = new BarkSound();
-	      return bark;
-	   }
+//	private static BarkSound bark;
+//
+//	public static BarkSound getInstance() {
+//	      if(bark == null) bark = new BarkSound();
+//	      return bark;
+//	   }
 
 }

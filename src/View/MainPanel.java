@@ -15,6 +15,7 @@ import javax.swing.SwingConstants;
 import javax.swing.SwingUtilities;
 
 import Controller.GameManager;
+import Controller.SoundManager;
 import Model.BackgroundMusic;
 import Model.Button;
 import Model.MyIcon;
@@ -61,11 +62,15 @@ public class MainPanel extends JPanel {
 				if (button.getText().equals("ON")) {
 					changeBgmIcon();
 					button.setText("OFF");
-					BackgroundMusic.getInstance().stopMusic();
+					SoundManager.getInstance().getBGM().stopMusic();
+
+//					BackgroundMusic.getInstance().stopMusic();
 				} else {
 					changeBgmIcon();
 					button.setText("ON");
-					BackgroundMusic.getInstance().restartMusic();
+					SoundManager.getInstance().getBGM().restartMusic();
+
+//					BackgroundMusic.getInstance().restartMusic();
 				}
 			}
 		});

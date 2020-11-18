@@ -1,6 +1,8 @@
 package View;
 
+import Controller.GameController;
 import Controller.GameManager;
+import Controller.SoundManager;
 import Model.BackgroundMusic;
 
 public class MainState implements State {
@@ -32,8 +34,11 @@ public class MainState implements State {
 	public void playingState() {
 		Game game = GameManager.getInstance().getGame();
 		game.setState(PlayingState.getInstance());
-		BackgroundMusic.getInstance().stopMusic();
-		game.getController().setIsGameOverTrue();
+		SoundManager.getInstance().getBGM().stopMusic();
+
+//		BackgroundMusic.getInstance().stopMusic();
+		GameController.getInstance().setIsGameOverTrue();
+//		game.getController().setIsGameOverTrue();
 	}
 
 	@Override
