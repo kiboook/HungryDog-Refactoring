@@ -49,12 +49,12 @@ public class PlayPanel extends JPanel {
 		lblStage = new Label(stageIcon).setPlayLabelWithPosition(0, 0, 100, 100);
 
 		scoreIcon = new MyIcon("ScoreBoard.png").getIcon(200, 100);
-		lblScore = new Label(scoreIcon, SwingConstants.CENTER).setLableWithColorNPosition(Color.blue, Color.black, 100,
+		lblScore = new Label(scoreIcon, SwingConstants.CENTER).setLabelWithColorNPosition(Color.blue, Color.black, 100,
 				0, 200, 100);
 		lblScore.setText(Integer.toString(getBarObject().getScore()));
 
 		moveIcon = new MyIcon("MoveBoard.png").getIcon(150, 100);
-		setLblMove(new Label(moveIcon, SwingConstants.CENTER).setLableWithColorNPosition(Color.red, Color.black, 300, 0,
+		setLblMove(new Label(moveIcon, SwingConstants.CENTER).setLabelWithColorNPosition(Color.red, Color.black, 300, 0,
 				150, 100));
 		getLblMove().setText(Integer.toString(getBarObject().getMoveCount()));
 
