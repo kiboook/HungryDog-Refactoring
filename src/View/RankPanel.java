@@ -131,7 +131,7 @@ public class RankPanel extends JPanel {
 			e.printStackTrace();
 		}
 	}
-
+	
 	public void hideLabelBeforePrintRanking() {
 		for (int i = 0; i < rankCnt; i++) {
 			lblName[i].setVisible(false);

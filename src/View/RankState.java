@@ -15,6 +15,7 @@ public class RankState implements State {
 
 		RankPanel.getInstance().hideLabelBeforePrintRanking();
 		RankPanel.getInstance().printRanking(RankPanel.getInstance());
+		
 
 		game.getContentPane().add(RankPanel.getInstance());
 		game.repaint();
