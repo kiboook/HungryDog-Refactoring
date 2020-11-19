@@ -35,14 +35,14 @@ public class Label {
    
    
    // 상태변경 , 반환 메소드로 나눌지 여쭤보기
-   public JLabel setMainLableWithPosition(int widthPosition,int heightPosition, int widthLength, int heightLength){
+   public JLabel setMainLabelWithPosition(int widthPosition,int heightPosition, int widthLength, int heightLength){
       label = new JLabel(getLabelName(), getLabelIcon(), SwingUtilities.RIGHT);
       label.setFont(MyFont.getMainPanelFont());
       label.setForeground(getMainBackgroundColor());
       label.setBounds(widthPosition, heightPosition, widthLength, heightLength);
       return label;
    }
-   public JLabel setLableWithColorNPosition(Color backgroundColor,Color fontColor,int widthPosition,int heightPosition, int widthLength, int heightLength) {
+   public JLabel setLabelWithColorNPosition(Color backgroundColor,Color fontColor,int widthPosition,int heightPosition, int widthLength, int heightLength) {
       label= new JLabel(getLabelIcon(), SwingConstants.CENTER);
       label.setOpaque(true);
       label.setBackground(backgroundColor);
