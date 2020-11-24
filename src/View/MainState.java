@@ -3,6 +3,7 @@ package View;
 import Controller.GameController;
 import Controller.GameManager;
 import Controller.SoundManager;
+import Controller.State;
 import Model.BackgroundMusic;
 
 public class MainState implements State {

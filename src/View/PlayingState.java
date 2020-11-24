@@ -1,6 +1,7 @@
 package View;
 
 import Controller.GameManager;
+import Controller.State;
 import Controller.TimeThread;
 import Model.BarObject;
 import Model.MapArray;

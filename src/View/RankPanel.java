@@ -1,7 +1,5 @@
 package View;
 
-import Controller.Rank;
-
 import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Font;
@@ -24,6 +22,7 @@ import Model.Button;
 import Model.Label;
 import Model.MyFont;
 import Model.MyIcon;
+import Model.Rank;
 
 public class RankPanel extends JPanel {
 

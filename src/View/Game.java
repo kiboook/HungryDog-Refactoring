@@ -5,10 +5,11 @@ import javax.swing.JFrame;
 import Controller.GameController;
 import Controller.GameManager;
 import Controller.MyListener;
-import Controller.Rank;
 import Controller.SoundManager;
+import Controller.State;
 import Model.BackgroundMusic;
 import Model.BarObject;
+import Model.Rank;
 
 public class Game extends JFrame {
 	

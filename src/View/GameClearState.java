@@ -1,6 +1,7 @@
 package View;
 
 import Controller.GameManager;
+import Controller.State;
 import Model.BarObject;
 
 public class GameClearState implements State {

@@ -17,10 +17,10 @@ import javax.swing.text.BadLocationException;
 import javax.swing.text.PlainDocument;
 
 import Controller.GameManager;
-import Controller.Rank;
 import Model.BarObject;
 import Model.Button;
 import Model.MyIcon;
+import Model.Rank;
 
 public class GameOverPanel extends JPanel {
 	private static GameOverPanel imgGameOverPanel;

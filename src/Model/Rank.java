@@ -1,15 +1,13 @@
-package Controller;
+package Model;
 
-import java.awt.Font;
 import java.sql.Connection;
 import java.sql.DriverManager;
-import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 
-import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 
+import Controller.GameManager;
 import View.Game;
 import View.RankPanel;
 import View.RankState;

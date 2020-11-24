@@ -1,6 +1,7 @@
 package View;
 
 import Controller.GameManager;
+import Controller.State;
 
 public class RankState implements State {
 
