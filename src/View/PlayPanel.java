@@ -10,14 +10,14 @@ import javax.swing.SwingConstants;
 
 import Controller.GameController;
 import Controller.GameManager;
-import Controller.MyListener;
+import Controller.GameListener;
 import Controller.SoundManager;
 import Controller.TimeThread;
 import Model.BarObject;
 import Model.BarkSound;
 import Model.Bone;
-import Model.MyIcon;
-import Model.Label;
+import Model.GameIcon;
+import Model.AllLabel;
 import Model.Player;
 import Model.RiceBowl;
 import Model.Undo;
@@ -43,18 +43,18 @@ public class PlayPanel extends JPanel {
 		setBounds(0, 100, 600, 600);
 		setBackground(Color.red);
 		setLayout(null);
-		MyListener.getInstance().addPlayPanelKeyListner(this);
+		GameListener.getInstance().addPlayPanelKeyListner(this);
 
-		stageIcon = new MyIcon("stage" + getBarObject().getLevel() + ".png").getIcon(100, 100);
-		lblStage = new Label(stageIcon).setPlayLabelWithPosition(0, 0, 100, 100);
+		stageIcon = new GameIcon("stage" + getBarObject().getLevel() + ".png").getIcon(100, 100);
+		lblStage = new AllLabel(stageIcon).setPlayLabelWithPosition(0, 0, 100, 100);
 
-		scoreIcon = new MyIcon("ScoreBoard.png").getIcon(200, 100);
-		lblScore = new Label(scoreIcon, SwingConstants.CENTER).setLabelWithColorNPosition(Color.blue, Color.black, 100,
+		scoreIcon = new GameIcon("ScoreBoard.png").getIcon(200, 100);
+		lblScore = new AllLabel(scoreIcon, SwingConstants.CENTER).setLabelWithColorNPosition(Color.blue, Color.black, 100,
 				0, 200, 100);
 		lblScore.setText(Integer.toString(getBarObject().getScore()));
 
-		moveIcon = new MyIcon("MoveBoard.png").getIcon(150, 100);
-		setLblMove(new Label(moveIcon, SwingConstants.CENTER).setLabelWithColorNPosition(Color.red, Color.black, 300, 0,
+		moveIcon = new GameIcon("MoveBoard.png").getIcon(150, 100);
+		setLblMove(new AllLabel(moveIcon, SwingConstants.CENTER).setLabelWithColorNPosition(Color.red, Color.black, 300, 0,
 				150, 100));
 		getLblMove().setText(Integer.toString(getBarObject().getMoveCount()));
 

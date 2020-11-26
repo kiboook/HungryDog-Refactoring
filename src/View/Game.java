@@ -4,7 +4,7 @@ import javax.swing.JFrame;
 
 import Controller.GameController;
 import Controller.GameManager;
-import Controller.MyListener;
+import Controller.GameListener;
 import Controller.SoundManager;
 import Controller.State;
 import Model.BackgroundMusic;
