@@ -19,15 +19,16 @@ import javax.swing.SwingConstants;
 import Controller.GameManager;
 import Model.BarObject;
 import Model.Button;
-import Model.Label;
-import Model.MyFont;
-import Model.MyIcon;
+import Model.AllLabel;
+import Model.GameFont;
+import Model.GameIcon;
 import Model.Rank;
 
 public class RankPanel extends JPanel {
 
 	private static RankPanel rankPanel;
 	private JButton btnGoMain, btnExit;
+	private Button buttonGoMain, buttonExit;
 	private JLabel lblTitle, lblSubTitle;
 
 	private JLabel lblName[] = new JLabel[5];
@@ -52,23 +53,25 @@ public class RankPanel extends JPanel {
 		setBackground(backColor);
 		setLayout(null);
 
-		lblTitle = new Label("RANKING").setRankLabelWithFontNPosition(MyFont.getRankBIgFont(), 50, 50, 500, 90);
+		lblTitle = new AllLabel("RANKING").setRankLabelWithFontNPosition(GameFont.getRankBIgFont(), 50, 50, 500, 90);
 		lblTitle.setHorizontalAlignment(SwingConstants.CENTER);
 		add(lblTitle);
 
-		lblSubTitle = new Label("     NAME          SCORE").setRankLabelWithFontNPosition(MyFont.getRankSmallFont(), 50,
+		lblSubTitle = new AllLabel("     NAME          SCORE").setRankLabelWithFontNPosition(GameFont.getRankSmallFont(), 50,
 				165, 500, 60);
 		lblSubTitle.setOpaque(true);
 		lblSubTitle.setForeground(Color.red);
 		add(lblSubTitle);
 
-		imgBeforeHoveringMain = new MyIcon("main1.png").getIcon(225, 100);
-		imgAfterHoveringMain = new MyIcon("main2.png").getIcon(225, 100);
+		imgBeforeHoveringMain = new GameIcon("main1.png").getIcon(225, 100);
+		imgAfterHoveringMain = new GameIcon("main2.png").getIcon(225, 100);
 
-		imgBeforeHoveringExit = new MyIcon("exit1.png").getIcon(225, 100);
-		imgAfterHoveringExit = new MyIcon("exit2.png").getIcon(225, 100);
+		imgBeforeHoveringExit = new GameIcon("exit1.png").getIcon(225, 100);
+		imgAfterHoveringExit = new GameIcon("exit2.png").getIcon(225, 100);
 
-		btnGoMain = new Button("□ MAIN", imgBeforeHoveringMain, imgAfterHoveringMain).setButton(backColor, 50, 550, 235, 100);
+		buttonGoMain = new Button("□ MAIN", imgBeforeHoveringMain, imgAfterHoveringMain);
+		buttonGoMain.setButton(backColor, 50, 550, 235, 100);
+		btnGoMain=buttonGoMain.getButton();
 		btnGoMain.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				game.mainState();
@@ -76,7 +79,9 @@ public class RankPanel extends JPanel {
 		});
 		add(btnGoMain);
 
-		btnExit = new Button("Exit", imgBeforeHoveringExit, imgAfterHoveringExit).setButton(backColor, 325, 550, 235, 100);
+		buttonExit = new Button("Exit", imgBeforeHoveringExit, imgAfterHoveringExit);
+		buttonExit.setButton(backColor, 325, 550, 235, 100);
+		btnExit=buttonExit.getButton();
 		btnExit.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				System.exit(0);
