@@ -35,14 +35,13 @@ public class AllLabel {
    
    
    // 상태변경 , 반환 메소드로 나눌지 여쭤보기
-   public JLabel setMainLabelWithPosition(int widthPosition,int heightPosition, int widthLength, int heightLength){
+   public void setMainLabelWithPosition(int widthPosition,int heightPosition, int widthLength, int heightLength){
       label = new JLabel(getLabelName(), getLabelIcon(), SwingUtilities.RIGHT);
       label.setFont(GameFont.getMainPanelFont());
       label.setForeground(getMainBackgroundColor());
       label.setBounds(widthPosition, heightPosition, widthLength, heightLength);
-      return label;
    }
-   public JLabel setLabelWithColorNPosition(Color backgroundColor,Color fontColor,int widthPosition,int heightPosition, int widthLength, int heightLength) {
+   public void setLabelWithColorNPosition(Color backgroundColor,Color fontColor,int widthPosition,int heightPosition, int widthLength, int heightLength) {
       label= new JLabel(getLabelIcon(), SwingConstants.CENTER);
       label.setOpaque(true);
       label.setBackground(backgroundColor);
@@ -50,20 +49,17 @@ public class AllLabel {
       label.setForeground(fontColor);
       label.setBounds(widthPosition, heightPosition, widthLength, heightLength);
       label.setHorizontalTextPosition(SwingConstants.CENTER);
-      return label;
    }
-   public JLabel setPlayLabelWithPosition(int widthPosition,int heightPosition, int widthLength, int heightLength) {
+   public void setPlayLabelWithPosition(int widthPosition,int heightPosition, int widthLength, int heightLength) {
       label= new JLabel(getLabelIcon());
       label.setOpaque(true);
       label.setBackground(Color.white);
       label.setBounds(widthPosition, heightPosition, widthLength, heightLength);
-      return label;
    }
-   public JLabel setRankLabelWithFontNPosition(Font font,int widthPosition,int heightPosition, int widthLength, int heightLength) {
+   public void setRankLabelWithFontNPosition(Font font,int widthPosition,int heightPosition, int widthLength, int heightLength) {
 	   label = new JLabel(getLabelName());
 	   label.setBounds(widthPosition, heightPosition, widthLength, heightLength);
 	   label.setFont(font);
-	   return label;
    }
    public JLabel getLabel() {
 	   return label;
