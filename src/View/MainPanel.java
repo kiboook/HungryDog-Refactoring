@@ -14,9 +14,9 @@ import javax.swing.JPanel;
 import javax.swing.SwingConstants;
 import javax.swing.SwingUtilities;
 
+import Controller.BackgroundMusic;
 import Controller.GameManager;
 import Controller.SoundManager;
-import Model.BackgroundMusic;
 import Model.Button;
 import Model.GameIcon;
 import Model.AllLabel;

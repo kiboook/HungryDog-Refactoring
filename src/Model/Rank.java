@@ -8,9 +8,9 @@ import java.sql.Statement;
 import javax.swing.JOptionPane;
 
 import Controller.GameManager;
+import Controller.RankState;
 import View.Game;
 import View.RankPanel;
-import View.RankState;
 
 public class Rank {
 
