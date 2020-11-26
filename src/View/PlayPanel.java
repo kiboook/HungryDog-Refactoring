@@ -25,8 +25,8 @@ import Model.Undo;
 public class PlayPanel extends JPanel {
 	private Undo undo;
 	private ImageIcon stageIcon, scoreIcon, moveIcon;
-	private JLabel lblStage, lblScore;
-	private JLabel lblMove;
+	private JLabel lblStage, lblScore,lblMove;
+	private AllLabel labelMove,labelStage, labelScore;
 	boolean isGameOver;
 	private Game game = GameManager.getInstance().getGame();
 	private BarObject barObject = GameManager.getInstance().getBarObject();
@@ -46,16 +46,21 @@ public class PlayPanel extends JPanel {
 		GameListener.getInstance().addPlayPanelKeyListner(this);
 
 		stageIcon = new GameIcon("stage" + getBarObject().getLevel() + ".png").getIcon(100, 100);
-		lblStage = new AllLabel(stageIcon).setPlayLabelWithPosition(0, 0, 100, 100);
-
+		labelStage = new AllLabel(stageIcon);
+		labelStage.setPlayLabelWithPosition(0, 0, 100, 100);
+		lblStage=labelStage.getLabel();
+		
 		scoreIcon = new GameIcon("ScoreBoard.png").getIcon(200, 100);
-		lblScore = new AllLabel(scoreIcon, SwingConstants.CENTER).setLabelWithColorNPosition(Color.blue, Color.black, 100,
-				0, 200, 100);
+		labelScore = new AllLabel(scoreIcon, SwingConstants.CENTER);
+		labelScore.setLabelWithColorNPosition(Color.blue, Color.black, 100,0, 200, 100);
+		lblScore=labelScore.getLabel();
 		lblScore.setText(Integer.toString(getBarObject().getScore()));
 
 		moveIcon = new GameIcon("MoveBoard.png").getIcon(150, 100);
-		setLblMove(new AllLabel(moveIcon, SwingConstants.CENTER).setLabelWithColorNPosition(Color.red, Color.black, 300, 0,
-				150, 100));
+		labelMove=new AllLabel(moveIcon, SwingConstants.CENTER);
+		labelMove.setLabelWithColorNPosition(Color.red, Color.black, 300, 0,150, 100);
+		lblMove=labelMove.getLabel();
+		setLblMove(lblMove);
 		getLblMove().setText(Integer.toString(getBarObject().getMoveCount()));
 
 		TimeThread lblTime = TimeThread.getInstance();

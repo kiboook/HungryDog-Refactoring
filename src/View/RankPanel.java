@@ -30,7 +30,7 @@ public class RankPanel extends JPanel {
 	private JButton btnGoMain, btnExit;
 	private Button buttonGoMain, buttonExit;
 	private JLabel lblTitle, lblSubTitle;
-
+	private AllLabel labelTitle, labelSubTitle;
 	private JLabel lblName[] = new JLabel[5];
 	private JLabel lblScore[] = new JLabel[5];
 	private int[] lastScore = new int[2];
@@ -53,12 +53,15 @@ public class RankPanel extends JPanel {
 		setBackground(backColor);
 		setLayout(null);
 
-		lblTitle = new AllLabel("RANKING").setRankLabelWithFontNPosition(GameFont.getRankBIgFont(), 50, 50, 500, 90);
+		labelTitle = new AllLabel("RANKING");
+		labelTitle.setRankLabelWithFontNPosition(GameFont.getRankBIgFont(), 50, 50, 500, 90);
+		lblTitle=labelTitle.getLabel();
 		lblTitle.setHorizontalAlignment(SwingConstants.CENTER);
 		add(lblTitle);
 
-		lblSubTitle = new AllLabel("     NAME          SCORE").setRankLabelWithFontNPosition(GameFont.getRankSmallFont(), 50,
-				165, 500, 60);
+		labelSubTitle = new AllLabel("     NAME          SCORE");
+		labelSubTitle.setRankLabelWithFontNPosition(GameFont.getRankSmallFont(), 50,165, 500, 60);
+		lblSubTitle=labelSubTitle.getLabel();
 		lblSubTitle.setOpaque(true);
 		lblSubTitle.setForeground(Color.red);
 		add(lblSubTitle);
@@ -116,14 +119,14 @@ public class RankPanel extends JPanel {
 				// NAME 랭킹 라벨
 				lblName[rankCnt] = new JLabel();
 				lblName[rankCnt].setBounds(50, 225 + 60 * (rankCnt), 500, 60);
-				lblName[rankCnt].setFont(new Font("Verdana", Font.BOLD, 35));
+				lblName[rankCnt].setFont(GameFont.getRankSmallFont());
 				lblName[rankCnt].setText(rankCnt + 1 + ".  " + name + "\r\n");
 				rankPanel.add(lblName[rankCnt]);
 
 				// SCORE 랭킹 라벨
 				lblScore[rankCnt] = new JLabel();
 				lblScore[rankCnt].setBounds(340, 225 + 60 * (rankCnt), 500, 60);
-				lblScore[rankCnt].setFont(new Font("Verdana", Font.BOLD, 35));
+				lblScore[rankCnt].setFont(GameFont.getRankSmallFont());
 				lblScore[rankCnt].setText(score + "\r\n");
 				rankPanel.add(lblScore[rankCnt]);
 

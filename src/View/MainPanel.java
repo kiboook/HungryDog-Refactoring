@@ -27,9 +27,11 @@ public class MainPanel extends JPanel {
 	public static JButton btnBGMOnOff;
 	private Button buttonStart,buttonRank;
 	private JLabel lblTitle, lblDogDown, lblDogLeft, lblDogRight, lblDogUp;
+	private AllLabel labelDogDown,labelDogLeft,labelDogRight,labelDogUp;
 	private ImageIcon imgTitle;
 	private ImageIcon imgBeforeHoveringStart, imgAfterHoveringStart, imgBeforeHoveringRank, imgAfterHoveringRank,
 			imgDogDown, imgDogLeft, imgDogRight, imgDogUp;
+	private ImageIcon[] arrowImageArray = new ImageIcon[4];
 	public static ImageIcon bgmOn, bgmOff;
 	public static MainPanel getInstance() {
 		Game game = GameManager.getInstance().getGame();
@@ -84,7 +86,12 @@ public class MainPanel extends JPanel {
 		imgDogLeft = new GameIcon("cute_left.png").getIcon(45, 43);
 		imgDogRight = new GameIcon("cute_right.png").getIcon(45, 45);
 		imgDogUp = new GameIcon("cute_back.png").getIcon(45, 45);
-
+	
+		arrowImageArray[0]=imgDogDown;
+		arrowImageArray[1]=imgDogLeft;
+		arrowImageArray[2]=imgDogRight;
+		arrowImageArray[3]=imgDogUp;
+		
 		imgTitle = new GameIcon("Title.png").getIcon(500, 200);
 
 		lblTitle = new JLabel(imgTitle);
@@ -93,16 +100,25 @@ public class MainPanel extends JPanel {
 		lblTitle.setHorizontalAlignment(SwingConstants.CENTER);
 		add(lblTitle);
 
-		lblDogDown = new AllLabel("↓", imgDogDown).setMainLabelWithPosition(90, 350, 100, 50);
+		labelDogDown = new AllLabel("↓", arrowImageArray[0]);
+		labelDogDown.setMainLabelWithPosition(90, 350, 100, 50);
+		lblDogDown=labelDogDown.getLabel();
 		add(lblDogDown);
 
-		lblDogLeft = new AllLabel(" ←", imgDogLeft).setMainLabelWithPosition(205, 350, 100, 50);
+		labelDogLeft= new AllLabel(" ←", arrowImageArray[1]);
+		labelDogLeft.setMainLabelWithPosition(205, 350, 100, 50);
+		lblDogLeft=labelDogLeft.getLabel();
 		add(lblDogLeft);
 
-		lblDogRight = new AllLabel(" →", imgDogRight).setMainLabelWithPosition(320, 350, 100, 50);
+		
+		labelDogRight = new AllLabel(" →", arrowImageArray[2]);
+		labelDogRight.setMainLabelWithPosition(320, 350, 100, 50);
+		lblDogRight=labelDogRight.getLabel();
 		add(lblDogRight);
 
-		lblDogUp = new AllLabel("↑", imgDogUp).setMainLabelWithPosition(420, 350, 100, 50);
+		labelDogUp = new AllLabel("↑", arrowImageArray[3]);
+		labelDogUp.setMainLabelWithPosition(420, 350, 100, 50);
+		lblDogUp=labelDogUp.getLabel();
 		add(lblDogUp);
 
 		buttonStart = new Button("GO!", imgBeforeHoveringStart, imgAfterHoveringStart);

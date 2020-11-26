@@ -36,7 +36,7 @@ public class GameController {
 		player.moveUp();
 		GameManager.getInstance().getBarObject().moveCountUp();
 		// 캐릭터만 움직임
-		undo.setnUndo(1);
+		undo.setnUndo(UndoState.MOVEBOTTOM);
 		// 플레이어 이동할 좌표가 BONE이라면
 		if (map.mapArray[player.getY()][player.getX()] == GameObject.BONE) {
 			// 뼈다귀가 이동해야할 부분이 길이나 골인 경우
@@ -52,19 +52,19 @@ public class GameController {
 						boneList.get(i).setY(undo.getUndoY());
 					}
 				}
-				undo.setnUndo(11);
+				undo.setnUndo(UndoState.MOVEBOTTOMWITHBONE);
 				isMovable = true;
 				// 벽인 경우
 			} else {
 				player.moveDown();
 				isMovable = false;
-				undo.setnUndo(0);
+				undo.setnUndo(UndoState.FIX);
 			}
 		} else if (map.mapArray[player.getY()][player.getX()] == GameObject.BRICK) {
 			player.moveDown();
 			isMovable = false;
 			GameManager.getInstance().getBarObject().moveCountDown();
-			undo.setnUndo(0);
+			undo.setnUndo(UndoState.FIX);
 		}
 		SoundManager.getInstance().getBarkSound().startMusic();
 	
@@ -75,7 +75,7 @@ public class GameController {
 
 		player.moveDown();
 		GameManager.getInstance().getBarObject().moveCountUp();
-		undo.setnUndo(2);
+		undo.setnUndo(UndoState.MOVETOP);
 		if (map.mapArray[player.getY()][player.getX()] == GameObject.BONE) {
 			if (map.mapArray[player.getY() + 1][player.getX()] == GameObject.GRASS
 					|| map.mapArray[player.getY() + 1][player.getX()] == GameObject.RICEBOWL) {
@@ -88,19 +88,19 @@ public class GameController {
 						boneList.get(i).setY(undo.getUndoY());
 					}
 				}
-				undo.setnUndo(21);
+				undo.setnUndo(UndoState.MOVETOPWITHBONE);
 				isMovable = true;
 			} else {
 				GameManager.getInstance().getBarObject().moveCountDown();
 				player.moveUp();
 				isMovable = false;
-				undo.setnUndo(0);
+				undo.setnUndo(UndoState.FIX);
 			}
 		} else if (map.mapArray[player.getY()][player.getX()] == GameObject.BRICK) {
 			GameManager.getInstance().getBarObject().moveCountDown();
 			player.moveUp();
 			isMovable = false;
-			undo.setnUndo(0);
+			undo.setnUndo(UndoState.FIX);
 		}
 		SoundManager.getInstance().getBarkSound().startMusic();
 
@@ -111,7 +111,7 @@ public class GameController {
 
 		player.moveLeft();
 		GameManager.getInstance().getBarObject().moveCountUp();
-		undo.setnUndo(3);
+		undo.setnUndo(UndoState.MOVERIGHT);
 		if (map.mapArray[player.getY()][player.getX()] == GameObject.BONE) {
 			if (map.mapArray[player.getY()][player.getX() - 1] == GameObject.GRASS
 					|| map.mapArray[player.getY()][player.getX() - 1] == GameObject.RICEBOWL) {
@@ -124,19 +124,19 @@ public class GameController {
 						boneList.get(i).setX(undo.getUndoX());
 					}
 				}
-				undo.setnUndo(31);
+				undo.setnUndo(UndoState.MOVERIGHTWITHBONE);
 				isMovable = true;
 			} else {
 				GameManager.getInstance().getBarObject().moveCountDown();
 				player.moveRight();
 				isMovable = false;
-				undo.setnUndo(0);
+				undo.setnUndo(UndoState.FIX);
 			}
 		} else if (map.mapArray[player.getY()][player.getX()] == GameObject.BRICK) {
 			GameManager.getInstance().getBarObject().moveCountDown();
 			player.moveRight();
 			isMovable = false;
-			undo.setnUndo(0);
+			undo.setnUndo(UndoState.FIX);
 		}
 		SoundManager.getInstance().getBarkSound().startMusic();
 
@@ -148,7 +148,7 @@ public class GameController {
 		player.moveRight();
 		GameManager.getInstance().getBarObject().moveCountUp();
 
-		undo.setnUndo(4);
+		undo.setnUndo(UndoState.MOVELEFT);
 		if (map.mapArray[player.getY()][player.getX()] == GameObject.BONE) {
 			if (map.mapArray[player.getY()][player.getX() + 1] == GameObject.GRASS
 					|| map.mapArray[player.getY()][player.getX() + 1] == GameObject.RICEBOWL) {
@@ -161,20 +161,20 @@ public class GameController {
 						boneList.get(i).setX(undo.getUndoX());
 					}
 				}
-				undo.setnUndo(41);
+				undo.setnUndo(UndoState.MOVELEFTWITHBONE);
 				isMovable = true;
 			} else {
 				GameManager.getInstance().getBarObject().moveCountDown();
 				player.moveLeft();
 				isMovable = false;
-				undo.setnUndo(0);
+				undo.setnUndo(UndoState.FIX);
 			}
 
 		} else if (map.mapArray[player.getY()][player.getX()] == GameObject.BRICK) {
 			GameManager.getInstance().getBarObject().moveCountDown();
 			player.moveLeft();
 			isMovable = false;
-			undo.setnUndo(0);
+			undo.setnUndo(UndoState.FIX);
 		}
 		
 		SoundManager.getInstance().getBarkSound().startMusic();
@@ -186,12 +186,12 @@ public class GameController {
 		// undo.nUndo값에 따라 직전 상태로 바뀜
 		switch (undo.getnUndo()) {
 		// 캐릭터만 아래로 움직여줌
-		case 1:
+		case UndoState.MOVEBOTTOM:
 			this.moveDown(player, undo, boneList, riceBowlList);
 			break;
 
 		// 뼈다귀를 먼저 아래로 움직이고 캐릭터도 아래로 움직여줌
-		case 11:
+		case UndoState.MOVEBOTTOMWITHBONE:
 			map.mapArray[undo.getUndoY()][undo.getUndoX()] = GameObject.GRASS;
 			map.mapArray[undo.getUndoY() + 1][undo.getUndoX()] = GameObject.BONE;
 			for (int i = 0; i < riceBowlList.size(); i++) {
@@ -203,12 +203,12 @@ public class GameController {
 			break;
 
 		// 캐릭터만 위로 움직여줌
-		case 2:
+		case UndoState.MOVETOP:
 			this.moveUp(player, undo, boneList, riceBowlList);
 			break;
 
 		// 캐릭터와 뼈다귀 위로 움직여줌
-		case 21:
+		case UndoState.MOVETOPWITHBONE:
 			map.mapArray[undo.getUndoY()][undo.getUndoX()] = GameObject.GRASS;
 			map.mapArray[undo.getUndoY() - 1][undo.getUndoX()] = GameObject.BONE;
 			for (int i = 0; i < riceBowlList.size(); i++) {
@@ -220,12 +220,12 @@ public class GameController {
 			break;
 
 		// 캐릭터만 오른쪽으로 움직여줌
-		case 3:
+		case UndoState.MOVERIGHT:
 			this.moveRight(player, undo, boneList, riceBowlList);
 			break;
 
 		// 캐릭터와 뼈다귀 모두 오른쪽으로 움직여줌
-		case 31:
+		case UndoState.MOVERIGHTWITHBONE:
 			map.mapArray[undo.getUndoY()][undo.getUndoX()] = GameObject.GRASS;
 			map.mapArray[undo.getUndoY()][undo.getUndoX() + 1] = GameObject.BONE;
 			for (int i = 0; i < riceBowlList.size(); i++) {
@@ -237,12 +237,12 @@ public class GameController {
 			break;
 
 		// 캐릭터만 왼쪽으로 움직여줌
-		case 4:
+		case UndoState.MOVELEFT:
 			this.moveLeft(player, undo, boneList, riceBowlList);
 			break;
 
 		// 캐릭터와 뼈다귀 왼쪽으로 움직이기
-		case 41:
+		case UndoState.MOVELEFTWITHBONE:
 			map.mapArray[undo.getUndoY()][undo.getUndoX()] = GameObject.GRASS;
 			map.mapArray[undo.getUndoY()][undo.getUndoX() - 1] = GameObject.BONE;
 			for (int i = 0; i < riceBowlList.size(); i++) {
@@ -254,7 +254,7 @@ public class GameController {
 			break;
 		}
 		SoundManager.getInstance().getBarkSound().startMusic();
-		undo.setnUndo(0); // 다시 못 바꾸게 하기
+		undo.setnUndo(UndoState.FIX); // 다시 못 바꾸게 하기
 	}
 
 	public boolean isGameClear(Player player, Undo undo, ArrayList<Bone> boneList,
