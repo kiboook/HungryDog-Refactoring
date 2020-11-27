@@ -8,13 +8,13 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.SwingConstants;
 
+import Controller.BarkSound;
 import Controller.GameController;
 import Controller.GameManager;
 import Controller.GameListener;
 import Controller.SoundManager;
 import Controller.TimeThread;
 import Model.BarObject;
-import Model.BarkSound;
 import Model.Bone;
 import Model.GameIcon;
 import Model.AllLabel;

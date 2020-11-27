@@ -1,7 +1,5 @@
 package Controller;
 
-import Model.BackgroundMusic;
-import Model.BarkSound;
 import View.MainPanel;
 
 public class SoundManager {

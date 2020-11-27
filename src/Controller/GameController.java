@@ -3,7 +3,6 @@ package Controller;
 import java.util.ArrayList;
 import java.util.Map;
 
-import Model.BarkSound;
 import Model.Bone;
 import Model.GameObject;
 import Model.Player;
