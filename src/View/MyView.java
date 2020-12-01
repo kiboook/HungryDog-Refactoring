@@ -5,6 +5,7 @@ import java.util.ArrayList;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 
+import Controller.GameDirection;
 import Model.Bone;
 import Model.GameObject;
 import Model.GameImage;
@@ -12,7 +13,8 @@ import Model.Player;
 import Model.RiceBowl;
 import Model.Undo;
 
-public class MyView {
+public class MyView
+ {
 	
 	private static MyView s_Instance;
 	public static MyView getInstance() {
@@ -23,25 +25,23 @@ public class MyView {
 	public void inputKeyValueView(int key, Player player, Undo undo, ArrayList<Bone> boneList,
 			ArrayList<RiceBowl> riceBowlList) {
 		boolean flag = false;
-		switch (key) { // 누른 방향키에 따라 캐릭터 방향바꾸기
-		case 38: // 위
+		switch (key) {
+		case GameDirection.D_UP:
 			player.label.setIcon(GameImage.dogBackImage);
 			break;
-		case 40: // 아래
+		case GameDirection.D_DOWN:
 			player.label.setIcon(GameImage.dogFrontImage);
 			break;
-		case 37: // 오른쪽
+		case GameDirection.D_LEFT:
 			player.label.setIcon(GameImage.dogLeftImage);
 			break;
-		case 39: // 왼쪽
+		case GameDirection.D_RIGHT:
 			player.label.setIcon(GameImage.dogRightImage);
 			break;
 		}
 
-		// 옮겨진 캐릭터 그리기
 		player.label.setBounds(player.getX() * 50, player.getY() * 50 + 100, 50, 50);
 
-		// 밥그릇 그리기
 		for (int i = 0; i < riceBowlList.size(); i++) {
 			// 뼈다귀가 있다면(좌표가 겹친다면) 꽉찬 밥그릇
 			if (mapArray[riceBowlList.get(i).getY()][riceBowlList.get(i).getX()] == 2) {
@@ -79,6 +79,18 @@ public class MyView {
 		this.mapArray = mapArray;
 		mapLabel = new JLabel[12][12];
 	}
+	public int getMapValue(int y,int x,int direction) {
+		if(direction == GameDirection.UP) return this.mapArray[y-1][x];
+		else if(direction == GameDirection.RIGHT) return this.mapArray[y][x+1];
+		else if(direction == GameDirection.DOWN) return this.mapArray[y+1][x];
+		else if(direction == GameDirection.LEFT) return this.mapArray[y][x-1];
+		return -1;
+	}
+	public int getMapValue(int y,int x) {
+		return this.mapArray[y][x];
+	}
+	
+	
 	
 	public void DrawMap(JPanel panel) {
 		for (int i = 0; i < 12; i++) {
