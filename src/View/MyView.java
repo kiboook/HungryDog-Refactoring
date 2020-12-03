@@ -42,6 +42,7 @@ public class MyView
 
 		player.label.setBounds(player.getX() * 50, player.getY() * 50 + 100, 50, 50);
 
+		// 밥그릇 그리기
 		for (int i = 0; i < riceBowlList.size(); i++) {
 			// 뼈다귀가 있다면(좌표가 겹친다면) 꽉찬 밥그릇
 			if (mapArray[riceBowlList.get(i).getY()][riceBowlList.get(i).getX()] == 2) {
