@@ -8,13 +8,13 @@ import Model.GameObject;
 import Model.Player;
 import Model.RiceBowl;
 import Model.Undo;
-import View.MyView;
+import View.GameView;
 
 public class GameController {
 	
 	
 	private boolean isMovable = true, isGameOver;
-	MyView map = MyView.getInstance();
+	GameView map = GameView.getInstance();
 	private static GameController s_Instance;
 	
 	public static GameController getInstance() {

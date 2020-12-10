@@ -39,7 +39,7 @@ public class PlayPanel extends JPanel {
 
 	public PlayPanel(int mapArray[][]) {
 
-		MyView.getInstance().SettingMap(mapArray);
+		GameView.getInstance().SettingMap(mapArray);
 		undo = new Undo();
 
 		setBounds(0, 100, 600, 600);
@@ -72,8 +72,8 @@ public class PlayPanel extends JPanel {
 		add(getLblMove());
 		add(lblTime);
 
-		MyView.getInstance().DrawObject(this, player, boneList, riceBowlList);
-		MyView.getInstance().DrawMap(this);
+		GameView.getInstance().DrawObject(this, player, boneList, riceBowlList);
+		GameView.getInstance().DrawMap(this);
 	}
 
 	public void move(int key) { // 캐릭터와 뼈다귀, 밥그릇 좌표 옮기는 메소드
@@ -91,7 +91,7 @@ public class PlayPanel extends JPanel {
 	}
 
 	public void view(int key) {
-		MyView.getInstance().inputKeyValueView(key, player, undo, boneList, riceBowlList);
+		GameView.getInstance().inputKeyValueView(key, player, undo, boneList, riceBowlList);
 	}
 
 	public boolean isGameClear() {

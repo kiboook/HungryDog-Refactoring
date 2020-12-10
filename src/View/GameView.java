@@ -13,13 +13,13 @@ import Model.Player;
 import Model.RiceBowl;
 import Model.Undo;
 
-public class MyView
+public class GameView
  {
 	
-	private static MyView s_Instance;
-	public static MyView getInstance() {
+	private static GameView s_Instance;
+	public static GameView getInstance() {
 		if(s_Instance == null)
-			s_Instance = new MyView();
+			s_Instance = new GameView();
 		return s_Instance;
 	}
 	public void inputKeyValueView(int key, Player player, Undo undo, ArrayList<Bone> boneList,
