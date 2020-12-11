@@ -35,7 +35,6 @@ public class MainPanel extends JPanel {
 	private ImageIcon[] arrowImageArray = new ImageIcon[4];
 	public static ImageIcon bgmOn, bgmOff;
 	public static MainPanel getInstance() {
-		Game game = GameManager.getInstance().getGame();
 		if (mainPanel == null)
 			mainPanel = new MainPanel();
 
@@ -83,7 +82,7 @@ public class MainPanel extends JPanel {
 		imgBeforeHoveringRank = new GameIcon("ranking1.png").getIcon(150, 150);
 		imgAfterHoveringRank = new GameIcon("ranking2.png").getIcon(150, 150);
 
-		imgDogDown = new GameIcon("c.png").getIcon(47, 45);
+		imgDogDown = new GameIcon("cute_front.png").getIcon(47, 45);
 		imgDogLeft = new GameIcon("cute_left.png").getIcon(45, 43);
 		imgDogRight = new GameIcon("cute_right.png").getIcon(45, 45);
 		imgDogUp = new GameIcon("cute_back.png").getIcon(45, 45);
