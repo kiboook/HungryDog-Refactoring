@@ -8,8 +8,6 @@
 
 ### HungryDog
 
-<img width="470" alt="스크린샷 2020-12-15 오후 9 35 28" src="https://user-images.githubusercontent.com/54533309/102216170-1b07d900-3f1e-11eb-91b6-aef7c6ad370f.png">
-
 ![move](https://user-images.githubusercontent.com/54533309/102216218-2bb84f00-3f1e-11eb-8030-027e19a8244c.GIF)
 
 강아지를 키보드로 이동시켜 뼈를 밥그릇에 옮기고 뼈를 움직일 수 없는 공간에 위치시키면 게임이 끝나는 퍼즐게임이다.
@@ -20,7 +18,7 @@
 
 내가 맡은 부분만 간단히 정리하였다.
 
-##### 1. 구조화 되어있지 않은 프로젝트
+**1. 구조화 되어있지 않은 프로젝트**
 
 <img width="212" alt="스크린샷 2020-12-15 오후 9 45 57" src="https://user-images.githubusercontent.com/54533309/102217573-1f34f600-3f20-11eb-8d9f-6905c58b5fec.png">
 
@@ -28,7 +26,7 @@
 
 <br>
 
-##### 2. MainFrame 에 몰려있는 코드
+**2. MainFrame 에 몰려있는 코드**
 
 <img width="500" alt="스크린샷 2020-12-15 오후 9 55 27" src="https://user-images.githubusercontent.com/54533309/102217680-4db2d100-3f20-11eb-9981-1cb29f48077b.png">
 
@@ -38,7 +36,7 @@
 
 <br>
 
-##### 3. 획일화 되어있지 않은 변수명
+**3. 획일화 되어있지 않은 변수명**
 
 <img width="725" alt="스크린샷 2020-12-15 오후 10 03 17" src="https://user-images.githubusercontent.com/54533309/102218624-98811880-3f21-11eb-8de4-3e0735e70d68.png">
 
@@ -48,7 +46,7 @@
 
 ### 문제해결
 
-##### 1. State 패턴, 싱글톤 패턴 적용
+**1. State 패턴, 싱글톤 패턴 적용**
 
 <img width="210" alt="스크린샷 2020-12-15 오후 10 15 28" src="https://user-images.githubusercontent.com/54533309/102219669-1d206680-3f23-11eb-86f5-f38752ebd019.png"> <img width="340" alt="스크린샷 2020-12-15 오후 10 17 38" src="https://user-images.githubusercontent.com/54533309/102219831-59ec5d80-3f23-11eb-8e1b-723d496063f5.png">
 
@@ -66,7 +64,7 @@ State 인터페이스를 생성 해 main, rank, playing, gameOver, gameClear, ne
 
 <br>
 
-##### 2. 랭킹 관련 리팩토링
+**2. 랭킹 관련 리팩토링**
 
 기존 프로젝트는 랭킹을 텍스트 파일에 저장을 하는 방식이여서 우선 데이터베이스에 저장을 한 뒤 가져오게 바꿨다.
 
@@ -74,7 +72,7 @@ State 인터페이스를 생성 해 main, rank, playing, gameOver, gameClear, ne
 
 <br>
 
-##### 5. MVC 패턴 적용
+**5. MVC 패턴 적용**
 
 <img width="150" alt="스크린샷 2020-12-15 오후 10 46 30" src="https://user-images.githubusercontent.com/54533309/102222907-62469780-3f27-11eb-8230-4517d50810c3.png">
 
