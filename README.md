@@ -74,7 +74,7 @@ State 인터페이스를 생성 해 main, rank, playing, gameOver, gameClear, ne
 
 <br>
 
-**5. MVC 패턴 적용**
+**3. MVC 패턴 적용**
 
 <img width="150" alt="스크린샷 2020-12-15 오후 10 46 30" src="https://user-images.githubusercontent.com/54533309/102222907-62469780-3f27-11eb-8230-4517d50810c3.png">
 
@@ -95,8 +95,3 @@ State 인터페이스를 생성 해 main, rank, playing, gameOver, gameClear, ne
 이번 기회에 직접적으로 느낄 수 있어 아주 좋았다.
 
 이 수업 덕분에 다른 프로젝트를 마치고 나서도 리팩토링 작업을 수월하게 할 수 있을 것 같다.
-
-
-
-
-
