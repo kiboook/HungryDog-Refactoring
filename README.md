@@ -4,7 +4,7 @@
 
 리팩토링 개념을 배운 뒤, 기 개발된 프로젝트를 리팩토링 하는 수업이다.
 
-이전 코드 : https://github.com/Nam-Ki-Bok/HungryDog
+리팩토링 전 코드 : https://github.com/Nam-Ki-Bok/HungryDog
 
 ---
 
