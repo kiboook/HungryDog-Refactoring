@@ -18,8 +18,6 @@
 
 ### 문제인식
 
-내가 맡은 부분만 간단히 정리하였다.
-
 **1. 구조화 되어있지 않은 프로젝트**
 
 <img width="212" alt="스크린샷 2020-12-15 오후 9 45 57" src="https://user-images.githubusercontent.com/54533309/102217573-1f34f600-3f20-11eb-8d9f-6905c58b5fec.png">
