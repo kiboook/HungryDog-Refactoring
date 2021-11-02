@@ -1,10 +1,6 @@
 ### HungryDog - 리팩토링
 
-##### 3-2 문제해결기법
-
-리팩토링 개념을 배운 뒤, 기 개발된 프로젝트를 리팩토링 하는 수업이다.
-
-리팩토링 전 코드 : https://github.com/Nam-Ki-Bok/HungryDog
+리팩토링 전 : https://github.com/Nam-Ki-Bok/HungryDog
 
 ---
 
@@ -91,5 +87,3 @@ State 인터페이스를 생성 해 main, rank, playing, gameOver, gameClear, ne
 디자인 패턴을 적용하면 유지보수가 쉽다고 말로만 들어서 직접적으로 경험해 볼 일이 없었는데
 
 이번 기회에 직접적으로 느낄 수 있어 아주 좋았다.
-
-이 수업 덕분에 다른 프로젝트를 마치고 나서도 리팩토링 작업을 수월하게 할 수 있을 것 같다.
